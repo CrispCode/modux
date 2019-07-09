@@ -124,6 +124,6 @@ export class Device {
    * @return {Boolean}
    */
   isMobile () {
-    [ 'Windows', 'Linux', 'Macintosh', 'other' ].indexOf( this.__device ) === -1
+    return [ 'Windows', 'Linux', 'Macintosh', 'other' ].indexOf( this.__device ) === -1
   }
 }
