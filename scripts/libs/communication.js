@@ -61,24 +61,24 @@ export class Communication {
 
   /**
    * Sets a listener to track the progress of the request
-   * @param {Function} [progress=null] This function has one parameter representing the progress value
-   * @param {Function} end This function has two parameters, one parameter is the error and one which contains the responseText
+   * @param {Function} [progress=null] This function has two parameters, one parameter represents the progress value and the second is the event for onprogress
+   * @param {Function} end This function has three parameters, one parameter is the error and one which contains the responseText, and the third one will contain the entire event of onloadend
    */
   listener ( progress, end ) {
     const self = this
     this.__request.onloadend = function ( ev ) {
       if ( self.__request.status === 200 ) {
-        end( null, ev.target.responseText )
+        end( null, ev.target.responseText, ev )
       } else {
-        end( self.__request.status )
+        end( self.__request.status, ev.target.responseText, ev )
       }
     }
     if ( progress ) {
       this.__request.onprogress = function ( ev ) {
         if ( ev.lengthComputable ) {
-          progress( ev.loaded / ev.total )
+          progress( ev.loaded / ev.total, ev )
         } else {
-          progress()
+          progress( null, ev )
         }
       }
     }
