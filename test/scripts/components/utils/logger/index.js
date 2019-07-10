@@ -6,7 +6,7 @@ import { Utils } from './../index.js'
 
 export default class Index extends Utils {
   article1 () {
-    let test = this._createTestElement( '<b>logger</b> - A console wrapper to customize output to console' )
+    let test = this._createTestElement( '<b>logger</b> - A class instance to customize output to console' )
 
     // Step 1
     test.querySelector( '.steps' ).appendChild(
@@ -83,6 +83,27 @@ export default class Index extends Utils {
           } )
         },
         () => Promise.resolve( 'nothing should be displayed' )
+      )
+    )
+
+    // Step 5
+    test.querySelector( '.steps' ).appendChild(
+      this._createStep(
+        `
+            let l = logger.create( 'APP' )<br/>
+            l.enabled( true )<br/>
+            l.log( 'output' )<br/>
+            resolve( 'APP output' )
+        `,
+        () => {
+          return new Promise( ( resolve ) => {
+            let l = logger.create( 'APP' )
+            l.enabled( true )
+            l.log( 'output' )
+            resolve( 'APP output' )
+          } )
+        },
+        () => Promise.resolve( 'APP output' )
       )
     )
 

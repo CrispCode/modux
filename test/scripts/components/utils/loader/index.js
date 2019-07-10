@@ -108,6 +108,35 @@ export default class Index extends Utils {
       )
     )
 
+    // Step 4
+    test.querySelector( '.steps' ).appendChild(
+      this._createStep(
+        `
+        const resources = loader.create()<br/>
+        resources.preload( {<br/>
+        &nbsp;&nbsp;image2: { type: 'image', url: '/image2.png' },<br/>
+        &nbsp;&nbsp;audio: { type: 'audio', url: '/audio.wav' }<br/>
+        } )<br/>
+        &nbsp;&nbsp;.then( () => {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;resolve( Object.keys( resources.getCache() ).length )<br/>
+        &nbsp;&nbsp;} )
+        `,
+        () => {
+          const resources = loader.create()
+          return new Promise( ( resolve ) => {
+            resources.preload( {
+              image2: { type: 'image', url: '/image2.png' },
+              audio: { type: 'audio', url: '/ding.wav' }
+            } )
+              .then( () => {
+                resolve( Object.keys( resources.getCache() ).length )
+              } )
+          } )
+        },
+        () => Promise.resolve( 2 )
+      )
+    )
+
     return test
   }
 

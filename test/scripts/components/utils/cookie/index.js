@@ -2,7 +2,7 @@
 
 'use strict'
 
-import { cookie, loop, html } from './../../../../../scripts'
+import { Cookie, loop, html } from './../../../../../scripts'
 
 import { Utils } from './../index.js'
 
@@ -21,14 +21,14 @@ export default class Index extends Utils {
   }
 
   article1 () {
-    let test = this._createTestElement( '<b>cookie</b> - An object returning a setter and a getter for browser cookies' )
+    let test = this._createTestElement( '<b>Cookie</b> - A class used for manipulating browser cookies' )
 
     // Step 1
     test.querySelector( '.steps' ).appendChild(
       this._createStep(
-        `cookie.set('cookie-test','success')`,
+        `Cookie.set('cookie-test','success')`,
         () => {
-          cookie.set( 'cookie-test', 'success' )
+          Cookie.set( 'cookie-test', 'success' )
           return Promise.resolve( 'Cookie was set correctly' )
         },
         () => new Promise( ( resolve ) => {
@@ -39,7 +39,7 @@ export default class Index extends Utils {
           }
 
           // Test is done, delete the cookie
-          cookie.set( 'cookie-test', 'success', '/', -1000 )
+          Cookie.set( 'cookie-test', 'success', '/', -1000 )
         } )
       )
     )
@@ -47,9 +47,9 @@ export default class Index extends Utils {
     // Step 2
     test.querySelector( '.steps' ).appendChild(
       this._createStep(
-        `cookie.set('cookie-test','success', '/' )`,
+        `Cookie.set('cookie-test','success', '/' )`,
         () => {
-          cookie.set( 'cookie-test', 'success', '/' )
+          Cookie.set( 'cookie-test', 'success', '/' )
           return Promise.resolve( 'Cookie was set correctly' )
         },
         () => new Promise( ( resolve ) => {
@@ -60,7 +60,7 @@ export default class Index extends Utils {
           }
 
           // Test is done, delete the cookie
-          cookie.set( 'cookie-test', 'success', '/', -1000 )
+          Cookie.set( 'cookie-test', 'success', '/', -1000 )
         } )
       )
     )
@@ -68,9 +68,9 @@ export default class Index extends Utils {
     // Step 3
     test.querySelector( '.steps' ).appendChild(
       this._createStep(
-        `cookie.set('cookie-test','success', '/', 100 )`,
+        `Cookie.set('cookie-test','success', '/', 100 )`,
         () => {
-          cookie.set( 'cookie-test', 'success', '/', 100 )
+          Cookie.set( 'cookie-test', 'success', '/', 100 )
           return Promise.resolve( 'Cookie was set correctly' )
         },
         () => new Promise( ( resolve ) => {
@@ -81,7 +81,7 @@ export default class Index extends Utils {
           }
 
           // Test is done, delete the cookie
-          cookie.set( 'cookie-test', 'success', '/', -1000 )
+          Cookie.set( 'cookie-test', 'success', '/', -1000 )
         } )
       )
     )
@@ -89,10 +89,10 @@ export default class Index extends Utils {
     // Step 4
     test.querySelector( '.steps' ).appendChild(
       this._createStep(
-        `cookie.set('cookie-test','success' )<br/>cookie.set('cookie-test','success', null, -1000 )`,
+        `Cookie.set('cookie-test','success' )<br/>Cookie.set('cookie-test','success', null, -1000 )`,
         () => {
-          cookie.set( 'cookie-test', 'success' )
-          cookie.set( 'cookie-test', 'success', null, -1000 )
+          Cookie.set( 'cookie-test', 'success' )
+          Cookie.set( 'cookie-test', 'success', null, -1000 )
           return Promise.resolve( 'Cookie was created and then deleted' )
         },
         () => new Promise( ( resolve ) => {
@@ -108,18 +108,18 @@ export default class Index extends Utils {
     // Step 5
     test.querySelector( '.steps' ).appendChild(
       this._createStep(
-        `cookie.set('cookie-test','success', null, 100 )
+        `Cookie.set('cookie-test','success', null, 100 )
         <br/>
-        cookie.get('cookie-test' )`,
+        Cookie.get('cookie-test' )`,
         () => {
-          cookie.set( 'cookie-test', 'success', null, 100 )
-          return Promise.resolve( ( cookie.get( 'cookie-test' ) === 'success' ) ? 'Cookie was created and found' : 'Cookie was not found' )
+          Cookie.set( 'cookie-test', 'success', null, 100 )
+          return Promise.resolve( ( Cookie.get( 'cookie-test' ) === 'success' ) ? 'Cookie was created and found' : 'Cookie was not found' )
         },
         () => new Promise( ( resolve ) => {
           resolve( 'Cookie was created and found' )
 
           // Test is done, delete the cookie
-          cookie.set( 'cookie-test', 'success', null, -1000 )
+          Cookie.set( 'cookie-test', 'success', null, -1000 )
         } )
       )
     )
@@ -128,7 +128,7 @@ export default class Index extends Utils {
   }
 
   article2 () {
-    let test = this._createTestElement( 'Test `cookie.set` for yourself in the section below' )
+    let test = this._createTestElement( 'Test `Cookie.set` for yourself in the section below' )
 
     // Step 1
     let input = html( require( './test-set.html' ) )
@@ -140,8 +140,8 @@ export default class Index extends Utils {
       let path = input.querySelector( '.input-test-path' ).value
       let age = input.querySelector( '.input-test-age' ).value
       try {
-        cookie.set( name, value, path, age )
-        output.innerHTML = cookie.get( name )
+        Cookie.set( name, value, path, age )
+        output.innerHTML = Cookie.get( name )
       } catch ( e ) {
         output.innerHTML = e.message
       }
@@ -154,7 +154,7 @@ export default class Index extends Utils {
   }
 
   article3 () {
-    let test = this._createTestElement( 'Test `cookie.get` for yourself in the section below' )
+    let test = this._createTestElement( 'Test `Cookie.get` for yourself in the section below' )
 
     // Step 1
     let input = html( require( './test-get.html' ) )
@@ -163,7 +163,7 @@ export default class Index extends Utils {
     input.querySelector( '.button-test' ).addEventListener( 'click', () => {
       let name = input.querySelector( '.input-test-name' ).value
       try {
-        output.innerHTML = cookie.get( name )
+        output.innerHTML = Cookie.get( name )
       } catch ( e ) {
         output.innerHTML = e.message
       }

@@ -132,6 +132,14 @@ class Loader {
       } )
     } )
   }
+
+  /**
+   * Returns the cache containing the preloaded files
+   * @return {Object}
+   */
+  getCache () {
+    return this.__cache
+  }
 }
 
 /**

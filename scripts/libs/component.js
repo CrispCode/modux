@@ -22,13 +22,6 @@ export class Component {
   onStateChange ( url ) {}
 
   /**
-   * The method gets called whenever the container is resized
-   * @param {Number} width The width of the container
-   * @param {Number} height The height of the container
-   */
-  onResize ( width, height ) {}
-
-  /**
    * The method gets called when the component gets created in the page. It is the main method of the class
    */
   execute () {}
@@ -95,58 +88,8 @@ export class Component {
      * @private
      */
     this.__stateWatcher = Router.onStateChange( ( url ) => {
-      this.__onStateChange( url )
+      this.onStateChange( url )
     } )
-
-    /**
-     * Holds the previous width and height of the parent container
-     * @type {Object}
-     * @private
-     */
-    let previousParentSize = {}
-    /**
-     * Determines if the component watches for resize changes in parent dimensions
-     * @type {Boolean}
-     * @private
-     */
-    this.__resizeWatcher = true
-    /**
-     * This function checks for parent size changes every 100ms as long as the component exists
-     * @type {Function}
-     * @private
-     */
-    const parentResizeCheck = () => {
-      setTimeout( () => {
-        if ( this.__resizeWatcher ) {
-          if ( previousParentSize.width !== this.parent.clientWidth || previousParentSize.height !== this.parent.clientHeight ) {
-            previousParentSize.width = this.parent.clientWidth
-            previousParentSize.height = this.parent.clientHeight
-            this.__onResize( previousParentSize.width, previousParentSize.height )
-          }
-          parentResizeCheck()
-        }
-      }, 100 )
-    }
-    parentResizeCheck()
-  }
-
-  /**
-   * The method gets called whenever the state changes
-   * @param {String} url The current url
-   * @private
-   */
-  __onStateChange ( url ) {
-    this.onStateChange( url )
-  }
-
-  /**
-   * The method gets called whenever the container is resized
-   * @param {Number} width The width of the container
-   * @param {Number} height The height of the container
-   * @private
-   */
-  __onResize ( width, height ) {
-    this.onResize( width, height )
   }
 
   /**
@@ -155,7 +98,6 @@ export class Component {
    */
   __destroy () {
     this.__stateWatcher()
-    this.__resizeWatcher = false
     this.terminate()
     try {
       this.element.remove()

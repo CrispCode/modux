@@ -1,80 +1,88 @@
 'use strict'
 
 /**
- * The debug variable
- * @type {Boolean=false}
- * @private
+ * A class to mimic window.console
  */
-let debug = false
-/**
- * The id variable
- * @type {id=[ APP ]}
- * @private
- */
-let id = '[ APP ]'
+class Logger {
+  /**
+   * Creates an instance of Logger
+   * @param {String} [id] The identifier to appear before every output
+   */
+  constructor ( id ) {
+    this.__id = id || '[ APP ]'
+    this.__debug = false
+  }
 
-/**
- * A wrapper for window.console
- */
-export let logger = {
+  /**
+   * Create a new instance of the Logger
+   * @return {Logger} The new Logger instance
+   */
+  create ( id ) {
+    return new Logger( id )
+  }
 
   /**
    * Used to give an identifier to the output
-   * @param {String} value The identifier to appear before every output
+   * @param {String} id The identifier to appear before every output
    */
-  setId: ( value ) => {
-    id = value
-  },
+  setId ( id ) {
+    this.__id = id
+  }
 
   /**
    * Enable or disable the console output
    * @param {Boolean=false} [enabled] Use true if you want the output to appear
    */
-  enabled: ( enabled ) => {
-    debug = enabled
-  },
+  enabled ( enabled ) {
+    this.__debug = enabled
+  }
 
   /**
    * Wrapper for console.log
    */
-  log: function () {
-    if ( debug ) {
+  log () {
+    if ( this.__debug ) {
       try {
-        console.log.apply( this, [ id, ...arguments ] )
+        console.log.apply( this, [ this.__id, ...arguments ] )
       } catch ( e ) {}
     }
-  },
+  }
 
   /**
    * Wrapper for console.info
    */
-  info: function () {
-    if ( debug ) {
+  info () {
+    if ( this.__debug ) {
       try {
-        console.info.apply( this, [ id, ...arguments ] )
+        console.info.apply( this, [ this.__id, ...arguments ] )
       } catch ( e ) {}
     }
-  },
+  }
 
   /**
    * Wrapper for console.warn
    */
-  warn: function () {
-    if ( debug ) {
+  warn () {
+    if ( this.__debug ) {
       try {
-        console.warn.apply( this, [ id, ...arguments ] )
+        console.warn.apply( this, [ this.__id, ...arguments ] )
       } catch ( e ) {}
     }
-  },
+  }
 
   /**
    * Wrapper for console.error
    */
-  error: function () {
-    if ( debug ) {
+  error () {
+    if ( this.__debug ) {
       try {
-        console.error.apply( this, [ id, ...arguments ] )
+        console.error.apply( this, [ this.__id, ...arguments ] )
       } catch ( e ) {}
     }
   }
 }
+
+/**
+ * Returns a singleton of Logger
+ */
+export let logger = new Logger()

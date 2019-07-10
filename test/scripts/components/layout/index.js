@@ -5,6 +5,7 @@ import { Component, loop } from './../../../../scripts'
 import Approx from './../utils/approx'
 import Cookie from './../utils/cookie'
 import DateTime from './../utils/datetime'
+import Device from './../utils/device'
 import Extend from './../utils/extend'
 import Font from './../utils/font'
 import Getter from './../utils/getter'
@@ -25,6 +26,7 @@ const dependencies = {
   approx: Approx,
   cookie: Cookie,
   datetime: DateTime,
+  device: Device,
   extend: Extend,
   font: Font,
   getter: Getter,
