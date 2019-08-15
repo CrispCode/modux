@@ -31,15 +31,16 @@ class Loader {
 
   /**
    * Preload an image
+   * @param {String} id A unique identifier for this file
    * @param {String} url The image url to load
    * @return {Promise} Returns a promise which is resolved upon loading
    */
-  preloadImage ( url ) {
+  preloadImage ( id, url ) {
     let img = new Image()
     return new Promise( ( resolve, reject ) => {
       img.onload = () => {
-        this.__cache[ url ] = img
-        resolve( this.__cache[ url ] )
+        this.__cache[ id ] = img
+        resolve( this.__cache[ id ] )
       }
       img.onerror = ( err ) => {
         reject( err )
@@ -50,15 +51,16 @@ class Loader {
 
   /**
    * Preload an audio file
+   * @param {String} id A unique identifier for this file
    * @param {String} url The audio url to load
    * @return {Promise} Returns a promise which is resolved upon loading
    */
-  preloadAudio ( url ) {
+  preloadAudio ( id, url ) {
     let audio = new Audio()
     return new Promise( ( resolve, reject ) => {
       audio.addEventListener( 'canplay', () => {
-        this.__cache[ url ] = audio
-        resolve( this.__cache[ url ] )
+        this.__cache[ id ] = audio
+        resolve( this.__cache[ id ] )
       } )
       audio.onerror = ( err ) => {
         reject( err )
@@ -69,16 +71,17 @@ class Loader {
 
   /**
    * Preload a file using HTTPRequest
+   * @param {String} id A unique identifier for this file
    * @param {String} url The file url to load
    * @return {Promise} Returns a promise which is resolved upon loading
    */
-  preloadFile ( url ) {
+  preloadFile ( id, url ) {
     let xhr = new XMLHttpRequest()
     return new Promise( ( resolve, reject ) => {
       xhr.open( 'GET', url )
       xhr.onload = () => {
-        this.__cache[ url ] = url
-        resolve( this.__cache[ url ] )
+        this.__cache[ id ] = xhr.responseText
+        resolve( this.__cache[ id ] )
       }
       xhr.onerror = ( err ) => {
         reject( err )
@@ -121,7 +124,7 @@ class Loader {
           url = file.url
         }
         let loader = this[ 'preload' + type.charAt( 0 ).toUpperCase() + type.slice( 1 ).toLowerCase() ]
-        loader.call( this, url )
+        loader.call( this, id, url )
           .then( ( data ) => {
             loaded++
             process( null, id, data, loaded, total )
@@ -139,6 +142,15 @@ class Loader {
    */
   getCache () {
     return this.__cache
+  }
+
+  /**
+   * Returns a load file by id
+   * @param {String} id
+   * @return {Object}
+   */
+  get ( id ) {
+    return this.__cache[ id ]
   }
 }
 

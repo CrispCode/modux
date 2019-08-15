@@ -13,12 +13,12 @@ export default class Index extends Utils {
       this._createStep(
         `
         const resources = loader.create()<br/>
-        resources.preload( {<br/>
-        &nbsp;&nbsp;image: {<br/>
+        resources.preload( [<br/>
+        &nbsp;&nbsp;{<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;type: 'image',<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;url: '/image1.png'<br/>
         &nbsp;&nbsp;}<br/>
-        } )<br/>
+        ] )<br/>
         &nbsp;&nbsp;.then( () => {<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;resolve( 'File loaded "/image.png"' )<br/>
         &nbsp;&nbsp;} )
@@ -26,12 +26,11 @@ export default class Index extends Utils {
         () => {
           const resources = loader.create()
           return new Promise( ( resolve ) => {
-            resources.preload( {
-              image: {
-                type: 'image',
-                url: '/image1.png'
-              }
-            } )
+            resources.preload( [ {
+              type: 'image',
+              url: '/image1.png'
+            }
+            ] )
               .then( () => {
                 resolve( 'File loaded "/image1.png"' )
               } )
@@ -47,7 +46,7 @@ export default class Index extends Utils {
         `
         const resources = loader.create()<br/>
         resources.preload( {<br/>
-        &nbsp;&nbsp;image2: { type: 'image', url: '/image2.png' },<br/>
+        &nbsp;&nbsp;image: { type: 'image', url: '/image2.png' },<br/>
         &nbsp;&nbsp;audio: { type: 'audio', url: '/audio.wav' }<br/>
         } )<br/>
         &nbsp;&nbsp;.then( () => {<br/>
@@ -58,7 +57,7 @@ export default class Index extends Utils {
           const resources = loader.create()
           return new Promise( ( resolve ) => {
             resources.preload( {
-              image2: { type: 'image', url: '/image2.png' },
+              image: { type: 'image', url: '/image2.png' },
               audio: { type: 'audio', url: '/audio.wav' }
             } )
               .then( () => {
@@ -77,7 +76,7 @@ export default class Index extends Utils {
         const resources = loader.create()<br/>
         let output = []<br/>
         resources.preload( {<br/>
-        &nbsp;&nbsp;image2: { type: 'image', url: '/image2.png' },<br/>
+        &nbsp;&nbsp;image: { type: 'image', url: '/image2.png' },<br/>
         &nbsp;&nbsp;audio: { type: 'audio', url: '/ding.wav' }<br/>
         }, ( err, id, data, loaded, total ) => {<br/>
         &nbsp;&nbsp;output.push( { err: err, id: id, loaded: loaded, total: total } )<br/>
@@ -91,7 +90,7 @@ export default class Index extends Utils {
           return new Promise( ( resolve ) => {
             let output = []
             resources.preload( {
-              image2: { type: 'image', url: '/image2.png' },
+              image: { type: 'image', url: '/image2.png' },
               audio: { type: 'audio', url: '/ding.wav' }
             }, ( err, id, data, loaded, total ) => {
               output.push( { err: err, id: id, loaded: loaded, total: total } )
@@ -102,7 +101,7 @@ export default class Index extends Utils {
           } )
         },
         () => Promise.resolve( JSON.stringify( [
-          { err: null, id: 'image2', loaded: 1, total: 2 },
+          { err: null, id: 'image', loaded: 1, total: 2 },
           { err: null, id: 'audio', loaded: 2, total: 2 }
         ], null, 4 ) )
       )
@@ -114,7 +113,7 @@ export default class Index extends Utils {
         `
         const resources = loader.create()<br/>
         resources.preload( {<br/>
-        &nbsp;&nbsp;image2: { type: 'image', url: '/image2.png' },<br/>
+        &nbsp;&nbsp;image: { type: 'image', url: '/image2.png' },<br/>
         &nbsp;&nbsp;audio: { type: 'audio', url: '/audio.wav' }<br/>
         } )<br/>
         &nbsp;&nbsp;.then( () => {<br/>
@@ -125,7 +124,7 @@ export default class Index extends Utils {
           const resources = loader.create()
           return new Promise( ( resolve ) => {
             resources.preload( {
-              image2: { type: 'image', url: '/image2.png' },
+              image: { type: 'image', url: '/image2.png' },
               audio: { type: 'audio', url: '/ding.wav' }
             } )
               .then( () => {
@@ -134,6 +133,60 @@ export default class Index extends Utils {
           } )
         },
         () => Promise.resolve( 2 )
+      )
+    )
+
+    // Step 5
+    test.querySelector( '.steps' ).appendChild(
+      this._createStep(
+        `
+        const resources = loader.create()<br/>
+        resources.preload( {<br/>
+        &nbsp;&nbsp;text: { type: 'file', url: '/text.txt' }<br/>
+        } )<br/>
+        &nbsp;&nbsp;.then( () => {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;resolve( resources.get( 'text' ) )<br/>
+        &nbsp;&nbsp;} )
+        `,
+        () => {
+          const resources = loader.create()
+          return new Promise( ( resolve ) => {
+            resources.preload( {
+              text: { type: 'file', url: '/text.txt' }
+            } )
+              .then( () => {
+                resolve( resources.get( 'text' ) )
+              } )
+          } )
+        },
+        () => Promise.resolve( 'A text file.\nThis file contains some dummy text.\n\nThe quick brown fox jumps over the lazy dog!' )
+      )
+    )
+
+    // Step 6
+    test.querySelector( '.steps' ).appendChild(
+      this._createStep(
+        `
+            const resources = loader.create()<br/>
+            resources.preload( {<br/>
+            &nbsp;&nbsp;image: { type: 'image', url: '/image1.png' }<br/>
+            } )<br/>
+            &nbsp;&nbsp;.then( () => {<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;resolve( typeof resources.get( 'image' ) )<br/>
+            &nbsp;&nbsp;} )
+            `,
+        () => {
+          const resources = loader.create()
+          return new Promise( ( resolve ) => {
+            resources.preload( {
+              image: { type: 'image', url: '/image1.png' }
+            } )
+              .then( () => {
+                resolve( typeof resources.get( 'image' ) )
+              } )
+          } )
+        },
+        () => Promise.resolve( 'object' )
       )
     )
 

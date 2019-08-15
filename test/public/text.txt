@@ -1,0 +1,4 @@
+A text file.
+This file contains some dummy text.
+
+The quick brown fox jumps over the lazy dog!
