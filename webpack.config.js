@@ -69,7 +69,7 @@ module.exports = () => {
     },
     devServer: {
       publicPath: '/',
-      hot: true,
+      // hot: true,
       inline: true,
       host: '0.0.0.0',
       port: 8080,
