@@ -4,7 +4,7 @@ A framework used in front end application creation
 ## Installation
 
 ```
-npm install CrispCode/modux#v2.2.2 --save-dev
+npm install CrispCode/modux#v2.2.3 --save-dev
 ```
 
 ## How to use
