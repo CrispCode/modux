@@ -31,7 +31,7 @@ If you want to check functionality you can use `npm run test`
 In order to support older versions of browsers, you can use polyfills:
 
 ```
-    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CMutationObserver%2CString.prototype.padStart%2Cconsole.info"></script>
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CMutationObserver%2CString.prototype.padStart%2Cconsole.info%2CNumber.isInteger%2CMath.sign"></script>
 ```
 
 ## Modux classes
