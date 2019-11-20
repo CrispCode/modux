@@ -128,7 +128,7 @@ module.exports = () => {
             {
               loader: 'sass-loader',
               options: {
-                data: '@import "' + path.join( __dirname, 'styles', 'index.scss' ) + '";'
+                prependData: '@import "' + path.join( __dirname, 'styles', 'index.scss' ) + '";'
               }
             }
           ]
@@ -148,7 +148,7 @@ module.exports = () => {
             {
               loader: 'sass-loader',
               options: {
-                data: '@import "' + path.join( __dirname, 'styles', 'index.scss' ) + '";'
+                prependData: '@import "' + path.join( __dirname, 'styles', 'index.scss' ) + '";'
               }
             }
           ]
