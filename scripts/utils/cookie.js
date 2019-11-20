@@ -32,10 +32,10 @@ export class Cookie {
    */
   static get ( name ) {
     name = name + '='
-    var decodedCookie = decodeURIComponent( document.cookie )
-    var cookies = decodedCookie.split( ';' )
-    for ( var i = 0; i < cookies.length; i++ ) {
-      var cookie = cookies[ i ]
+    let decodedCookie = decodeURIComponent( document.cookie )
+    let cookies = decodedCookie.split( ';' )
+    for ( let i = 0; i < cookies.length; i++ ) {
+      let cookie = cookies[ i ]
       while ( cookie.charAt( 0 ) === ' ' ) {
         cookie = cookie.substring( 1 )
       }
