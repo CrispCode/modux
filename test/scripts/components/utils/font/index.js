@@ -83,7 +83,7 @@ export default class Index extends Utils {
     test.querySelector( '.steps' ).appendChild(
       this._createStep(
         `
-          let font = Font.create( 'WH Hoxton' )<br/>
+          let font = Font.create( 'Test Font 1' )<br/>
           font.get( [<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;'url(\\'/fonts/WHHoxtonWeb-Regular.ttf\\') format(\\'truetype\\')',<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;'url(\\'/fonts/WHHoxton-Regular.otf\\') format(\\'opentype\\')'<br/>
@@ -98,7 +98,7 @@ export default class Index extends Utils {
           &nbsp;&nbsp;} )
         `,
         () => new Promise( ( resolve ) => {
-          let font = Font.create( 'WH Hoxton' )
+          let font = Font.create( 'Test Font 1' )
           font.get( [
             `url('/fonts/WHHoxtonWeb-Regular.ttf') format('truetype')`,
             `url('/fonts/WHHoxton-Regular.otf') format('opentype')`
@@ -120,7 +120,7 @@ export default class Index extends Utils {
     test.querySelector( '.steps' ).appendChild(
       this._createStep(
         `
-          let font = Font.create( 'WH Hoxton', { 'font-weight': 'bold' } )<br/>
+          let font = Font.create( 'Test Font 2', { 'font-weight': 'bold' } )<br/>
           font.get( [<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;'url(\\'/wrong-path/no-font.ttf\\') format(\\'truetype\\')',<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;'url(\\'/wrong-path/no-font.otf\\') format(\\'opentype\\')'<br/>
@@ -135,7 +135,7 @@ export default class Index extends Utils {
           &nbsp;&nbsp;} )
         `,
         () => new Promise( ( resolve ) => {
-          let font = Font.create( 'WH Hoxton', { 'font-weight': 'bold' } )
+          let font = Font.create( 'Test Font 2', { 'font-weight': 'bold' } )
           font.get( [
             `url('/wrong-path/no-font.ttf') format('truetype')`,
             `url('/wrong-path/no-font.otf') format('opentype')`
