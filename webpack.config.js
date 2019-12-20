@@ -47,17 +47,13 @@ module.exports = () => {
     new webpack.DefinePlugin( { 'PRODUCTION': prod } )
   ]
 
-  if ( !prod ) {
-    plugins.push( new webpack.HotModuleReplacementPlugin() )
-  }
-
   if ( prod ) {
     plugins.push( new UglifyJSPlugin() )
   }
 
-  return smp.wrap( {
-    mode: ( prod ) ? 'production' : 'development',
-    stats: 'minimal',
+  let config = {
+    mode: 'none',
+    cache: !prod,
     entry: {
       app: [
         path.join( apps, 'app.js' )
@@ -65,12 +61,15 @@ module.exports = () => {
     },
     output: {
       path: build,
-      filename: '[name].min.js'
+      filename: '[name].min.js',
+      pathinfo: !prod
     },
     devServer: {
       publicPath: '/',
       hot: !( prod ),
+      injectHot: !( prod ),
       inline: !( prod ),
+      liveReload: !( prod ),
       host: '0.0.0.0',
       port: 8080,
       contentBase: build,
@@ -165,10 +164,28 @@ module.exports = () => {
     },
     plugins: plugins,
     performance: {
-      hints: ( prod ) ? false : 'warning'
+      hints: ( prod ) ? 'warning' : false
     },
     optimization: {
-      usedExports: true
+      namedModules: false,
+      namedChunks: !prod,
+      nodeEnv: process.env.NODE_ENV,
+      flagIncludedChunks: true,
+      occurrenceOrder: true,
+      sideEffects: true,
+      usedExports: true,
+      concatenateModules: true,
+      splitChunks: {
+        hidePathInfo: true,
+        minSize: 30000,
+        maxAsyncRequests: 5,
+        maxInitialRequests: 3
+      },
+      noEmitOnErrors: prod,
+      checkWasmTypes: true,
+      minimize: prod
     }
-  } )
+  }
+
+  return smp.wrap( config )
 }
