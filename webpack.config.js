@@ -69,8 +69,8 @@ module.exports = () => {
     },
     devServer: {
       publicPath: '/',
-      // hot: true,
-      inline: true,
+      hot: !( prod ),
+      inline: !( prod ),
       host: '0.0.0.0',
       port: 8080,
       contentBase: build,
