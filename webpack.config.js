@@ -127,7 +127,10 @@ module.exports = () => {
             {
               loader: 'sass-loader',
               options: {
-                prependData: '@import "' + path.join( __dirname, 'styles', 'index.scss' ) + '";'
+                prependData: ( loaderContext ) => {
+                  const relativePath = path.relative( path.dirname( loaderContext.resourcePath ), path.join( __dirname, 'styles', 'index.scss' ) ).split( path.sep ).join( '/' )
+                  return '@import "' + relativePath + '";'
+                }
               }
             }
           ]
@@ -147,7 +150,10 @@ module.exports = () => {
             {
               loader: 'sass-loader',
               options: {
-                prependData: '@import "' + path.join( __dirname, 'styles', 'index.scss' ) + '";'
+                prependData: ( loaderContext ) => {
+                  const relativePath = path.relative( path.dirname( loaderContext.resourcePath ), path.join( __dirname, 'styles', 'index.scss' ) ).split( path.sep ).join( '/' )
+                  return '@import "' + relativePath + '";'
+                }
               }
             }
           ]
