@@ -15,6 +15,7 @@
 import { Component } from 'modux'
 
 import template from './template.html'
+import './index.scss'
 
 export class Layout extends Component {
   get template () {
@@ -59,4 +60,25 @@ window.addEventListener( 'load', () => {
   initialize()
 } )
 
+```
+
+#### /app.html
+
+```html
+<!DOCTYPE html>
+<head>
+    <title> App </title>
+
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+    
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CMutationObserver%2CString.prototype.padStart%2Cconsole.info"></script>    
+
+    <base href="/" />
+        
+    <link rel="stylesheet" href="app.min.css" />
+</head>
+<body>
+    <script src="app.min.js"></script>
+</body>
+</html>
 ```
