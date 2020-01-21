@@ -1,6 +1,6 @@
 {
   "name": "modux",
-  "version": "2.2.7",
+  "version": "2.3.0",
   "description": "A framework used in front end application creation",
   "author": "Crisp Code ( contact@crispcode.ro )",
   "engines": {
@@ -23,7 +23,6 @@
     "babel-loader": "^8.0.4",
     "copy-webpack-plugin": "^5.1.0",
     "css-loader": "^3.3.0",
-    "esdoc-publish-markdown-plugin": "^1.1.0",
     "eslint": "^6.7.2",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
@@ -48,8 +47,8 @@
   },
   "main": "./scripts/index.js",
   "scripts": {
-    "test": "cd test && ./../cli.js development",
-    "test-build": "cd test && ./../cli.js production",
+    "test": "cd test && node ./../cli.js development",
+    "test-build": "cd test && node ./../cli.js production",
     "docs": "rm -rf ./docs && ./node_modules/.bin/esdoc && open ./docs/index.html"
   }
 }

@@ -4,7 +4,7 @@ A framework used in front end application creation
 ## Installation
 
 ```
-npm install CrispCode/modux#v2.2.7 --save-dev
+npm install CrispCode/modux#v2.3.0 --save-dev
 ```
 
 ## How to use
@@ -12,8 +12,8 @@ npm install CrispCode/modux#v2.2.7 --save-dev
 Add to your package.json scripts:
 ```
   "scripts": {
-    "test": "NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --config ./node_modules/modux/webpack.config.js",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack --config ./node_modules/modux/webpack.config.js"
+    "test": "node modux dev",
+    "build": "node modux prod"
   }
 ```
 
