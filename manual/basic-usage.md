@@ -12,7 +12,7 @@
 
 'use strict'
 
-import { Component } from 'modux'
+import { Component } from '@crispcode/modux'
 
 import template from './template.html'
 import './index.scss'
@@ -37,7 +37,7 @@ export class Layout extends Component {
 
 'use strict'
 
-import { Module, logger } from 'modux'
+import { Module, logger } from '@crispcode/modux'
 
 import { Layout } from './components/layout'
 

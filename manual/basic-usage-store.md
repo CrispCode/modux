@@ -12,7 +12,7 @@
 
 'use strict'
 
-import { Component } from 'modux'
+import { Component } from '@crispcode/modux'
 
 import template from './template.html'
 
@@ -41,7 +41,7 @@ export class Component1 extends Component {
 
 'use strict'
 
-import { Component } from 'modux'
+import { Component } from '@crispcode/modux'
 
 import template from './template.html'
 
@@ -74,7 +74,7 @@ export class Component2 extends Component {
 
 'use strict'
 
-import { Component } from 'modux'
+import { Component } from '@crispcode/modux'
 
 import template from './template.html'
 
@@ -98,7 +98,7 @@ export class Layout extends Component {
 
 'use strict'
 
-import { Module } from 'modux'
+import { Module } from '@crispcode/modux'
 
 import { Layout } from './components/layout'
 import { Component1 } from './components/component1'
