@@ -38,36 +38,36 @@ In order to support older versions of browsers, you can use polyfills:
 
   |Name|Usage|Description|
   |:---:|---|---|
-  | config | `import { config } from 'modux'` | A class containing the configuration |
-  | store | `import { store } from 'modux'` | A class used to communicate between components |
-  | Router | `import { Router } from 'modux'` | A static class used to manipulate states and urls |
-  | Communication | `import { Communication } from 'modux'` | The Communication class, used to handler http requests |
-  | Component | `import { Component } from 'modux'` | The Component class. Components are the backbone of the application |
-  | Module | `import { Module } from 'modux'` | The Module class. Modules are the main part of modux |
+  | config | `import { config } from '@crispcode/modux'` | A class containing the configuration |
+  | store | `import { store } from '@crispcode/modux'` | A class used to communicate between components |
+  | Router | `import { Router } from '@crispcode/modux'` | A static class used to manipulate states and urls |
+  | Communication | `import { Communication } from '@crispcode/modux'` | The Communication class, used to handler http requests |
+  | Component | `import { Component } from '@crispcode/modux'` | The Component class. Components are the backbone of the application |
+  | Module | `import { Module } from '@crispcode/modux'` | The Module class. Modules are the main part of modux |
 
 ## Utils classes
 
   |Name|Usage|Description|
   |:---:|---|---|
-  | approx | `import { approx } from 'modux'` | Used to approximate a number to a certain number of decimals |
-  | Cookie | `import { Cookie } from 'modux'` | A static class used to manipulate cookies |
-  | DateTime | `import { DateTime } from 'modux'` | A Date class wrapper |
-  | Device | `import { Device } from 'modux'` | A static class used to get device information |
-  | extend | `import { extend } from 'modux'` | Extends an object with another object |
-  | font | `import { font } from 'modux'` | A font loader |
-  | getter | `import { getter } from 'modux'` | Used to return a deep value from an Object. Use the "." separator to check subobjects |
-  | html | `import { html } from 'modux'` | Convert string to html |
-  | isNumber | `import { isNumber } from 'modux'` | Checks if the value is a number |
-  | isObject | `import { isObject } from 'modux'` | Checks if the object is an Object |
-  | loader | `import { loader } from 'modux'` | The Loader class is used to preload files |
-  | Logger | `import { Logger } from 'modux'` | A class to mimic window.console |
-  | loop | `import { loop } from 'modux'` | Loop through a collection Object or Array |
-  | radians | `import { radians } from 'modux'` | Convert an angle from degrees to radians |
-  | rnd | `import { rnd } from 'modux'` | Generate a random number between two values |
-  | scroll | `import { scroll } from 'modux'` | A library used for scrolling window or an element |
-  | setter | `import { setter } from 'modux'` | Used to set a deep value from an Object |
-  | Sounds | `import { sonds } from 'modux'` | A class used to manipulate Sounds |
-  | uid | `import { uid } from 'modux'` | Generates a random unique identifier |
+  | approx | `import { approx } from '@crispcode/modux'` | Used to approximate a number to a certain number of decimals |
+  | Cookie | `import { Cookie } from '@crispcode/modux'` | A static class used to manipulate cookies |
+  | DateTime | `import { DateTime } from '@crispcode/modux'` | A Date class wrapper |
+  | Device | `import { Device } from '@crispcode/modux'` | A static class used to get device information |
+  | extend | `import { extend } from '@crispcode/modux'` | Extends an object with another object |
+  | font | `import { font } from '@crispcode/modux'` | A font loader |
+  | getter | `import { getter } from '@crispcode/modux'` | Used to return a deep value from an Object. Use the "." separator to check subobjects |
+  | html | `import { html } from '@crispcode/modux'` | Convert string to html |
+  | isNumber | `import { isNumber } from '@crispcode/modux'` | Checks if the value is a number |
+  | isObject | `import { isObject } from '@crispcode/modux'` | Checks if the object is an Object |
+  | loader | `import { loader } from '@crispcode/modux'` | The Loader class is used to preload files |
+  | Logger | `import { Logger } from '@crispcode/modux'` | A class to mimic window.console |
+  | loop | `import { loop } from '@crispcode/modux'` | Loop through a collection Object or Array |
+  | radians | `import { radians } from '@crispcode/modux'` | Convert an angle from degrees to radians |
+  | rnd | `import { rnd } from '@crispcode/modux'` | Generate a random number between two values |
+  | scroll | `import { scroll } from '@crispcode/modux'` | A library used for scrolling window or an element |
+  | setter | `import { setter } from '@crispcode/modux'` | Used to set a deep value from an Object |
+  | Sounds | `import { sonds } from '@crispcode/modux'` | A class used to manipulate Sounds |
+  | uid | `import { uid } from '@crispcode/modux'` | Generates a random unique identifier |
 
 ## Change Log
 
