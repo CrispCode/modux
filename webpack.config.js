@@ -24,7 +24,7 @@ module.exports = () => {
   console.log( 'LOADING APPLICATION - ' + ( ( prod ) ? 'PRODUCTION' : 'DEVELOPMENT' ) )
 
   let plugins = [
-    new MiniCssExtractPlugin( { filename: '[name].css' } ),
+    new MiniCssExtractPlugin( { filename: '[name].min.css' } ),
     new HtmlWebpackPlugin( {
       template: path.join( apps, 'app.html' ),
       inject: false,
@@ -65,16 +65,18 @@ module.exports = () => {
       pathinfo: !prod
     },
     devServer: {
+      open: true,
       publicPath: '/',
       hot: !( prod ),
       injectHot: !( prod ),
       inline: !( prod ),
       liveReload: !( prod ),
-      host: '0.0.0.0',
-      port: 8080,
       contentBase: build,
       historyApiFallback: true,
       disableHostCheck: true,
+      stats: {
+        colors: true
+      },
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': 'true',
