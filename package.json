@@ -1,5 +1,5 @@
 {
-  "name": "modux",
+  "name": "@crispcode/modux",
   "version": "2.3.0",
   "description": "A framework used in front end application creation",
   "author": "Crisp Code ( contact@crispcode.ro )",
@@ -27,7 +27,7 @@
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "imagemin-webpack-plugin": "^2.4.0",
-    "mini-css-extract-plugin": "^0.8.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.11.0",
     "raw-loader": "^4.0.0",
     "sass-loader": "^8.0.0",
