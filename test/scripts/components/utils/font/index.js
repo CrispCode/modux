@@ -85,8 +85,7 @@ export default class Index extends Utils {
         `
           let font = Font.create( 'Test Font 1' )<br/>
           font.get( [<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;'url(\\'/fonts/WHHoxtonWeb-Regular.ttf\\') format(\\'truetype\\')',<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;'url(\\'/fonts/WHHoxton-Regular.otf\\') format(\\'opentype\\')'<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;'url(\\'/fonts/Roboto-Regular.ttf\\') format(\\'truetype\\')'<br/>
           &nbsp;&nbsp;] )<br/>
           &nbsp;&nbsp;.load( 10, 500 )<br/>
           &nbsp;&nbsp;.then( () => {<br/>
@@ -100,8 +99,7 @@ export default class Index extends Utils {
         () => new Promise( ( resolve ) => {
           let font = Font.create( 'Test Font 1' )
           font.get( [
-            `url('/fonts/WHHoxtonWeb-Regular.ttf') format('truetype')`,
-            `url('/fonts/WHHoxton-Regular.otf') format('opentype')`
+            `url('/fonts/Roboto-Regular.ttf') format('truetype')`
           ] )
             .load( 10, 500 )
             .then( () => {
