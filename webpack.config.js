@@ -195,5 +195,14 @@ module.exports = () => {
     }
   }
 
+  // Overwrite config if needed
+  try {
+    let newConfig = require( path.join( apps, 'modux.config.js' ) )
+    if ( typeof newConfig === 'function' ) {
+      console.log( '\nUsing new configuration from modux.config.js\n\n' )
+      config = newConfig( config )
+    }
+  } catch ( err ) {}
+
   return smp.wrap( config )
 }

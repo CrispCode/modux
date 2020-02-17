@@ -69,6 +69,10 @@ In order to support older versions of browsers, you can use polyfills:
   | Sounds | `import { sonds } from '@crispcode/modux'` | A class used to manipulate Sounds |
   | uid | `import { uid } from '@crispcode/modux'` | Generates a random unique identifier |
 
+## Configuration
+
+  You can create a file called ```modux.config.js``` in the root of your folder, which needs to contain a function with one parameter and returns an object. The parameter of the function will be filled with the current webpack configuration. This gives the user a chance to modify the default webpack configuration based on their needs.
+
 ## Change Log
 
   We're using the GitHub [releases](https://github.com/CrispCode/modux/releases) for changelog entries.
