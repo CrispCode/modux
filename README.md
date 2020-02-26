@@ -12,8 +12,8 @@ npm install @crispcode/modux --save-dev
 Add to your package.json scripts:
 ```
   "scripts": {
-    "test": "node modux dev",
-    "build": "node modux prod"
+    "test": "modux dev",
+    "build": "modux prod"
   }
 ```
 
@@ -25,6 +25,10 @@ Clone the modux repository to your machine and use the following commands:
 
 To generate a documentation use `npm run docs`
 If you want to check functionality you can use `npm run test` 
+
+## Getting started
+
+You can check the manual files for a quick introduction into modux. You can get started [here](https://github.com/CrispCode/modux/blob/master/manual/getting-started.md).
 
 ## Polyfill
 

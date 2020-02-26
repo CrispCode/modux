@@ -11,6 +11,7 @@
           "index": "./README.md",
           "globalIndex": true,
           "files": [
+            "./manual/getting-started.md",
             "./manual/basic-usage.md",
             "./manual/basic-usage-config.md",
             "./manual/basic-usage-databus.md",
