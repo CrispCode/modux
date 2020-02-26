@@ -39,7 +39,7 @@ In order to support older versions of browsers, you can use polyfills:
   |Name|Usage|Description|
   |:---:|---|---|
   | config | `import { config } from '@crispcode/modux'` | A class containing the configuration |
-  | store | `import { store } from '@crispcode/modux'` | A class used to communicate between components |
+  | databus | `import { databus } from '@crispcode/modux'` | A class used to communicate between components |
   | Router | `import { Router } from '@crispcode/modux'` | A static class used to manipulate states and urls |
   | Communication | `import { Communication } from '@crispcode/modux'` | The Communication class, used to handler http requests |
   | Component | `import { Component } from '@crispcode/modux'` | The Component class. Components are the backbone of the application |

@@ -6,7 +6,7 @@ import { loop } from './../utils/loop.js'
 import { Router } from './router.js'
 
 import { config } from './config.js'
-import { store } from './store.js'
+import { databus } from './databus.js'
 
 /**
  * The attribute name used to determine if an HTMLElement is a component
@@ -84,11 +84,11 @@ export class Module {
      */
     this.config = config.create()
     /**
-     * Contains a new instance of Store which is passed on to all components
-     * @type {Store}
+     * Contains a new instance of DataBus which is passed on to all components
+     * @type {DataBus}
      * @public
      */
-    this.store = store.create()
+    this.databus = databus.create()
   }
 
   /**
@@ -99,7 +99,7 @@ export class Module {
    */
   __createComponent ( element, Component ) {
     if ( !element.moduxComponent ) {
-      element.moduxComponent = new Component( element, this, this.config, this.store )
+      element.moduxComponent = new Component( element, this, this.config, this.databus )
       element.moduxComponent.execute()
     }
   }
@@ -215,7 +215,7 @@ export class Module {
     /**
      * Holds the main Component which is used for the Module.
      */
-    this.__component = new this.__dependencies[ component ]( element, this, this.config, this.store )
+    this.__component = new this.__dependencies[ component ]( element, this, this.config, this.databus )
     element.moduxComponent = this.__component
     element.moduxComponent.execute()
   }

@@ -36,9 +36,9 @@ export class Component {
    * @param {HTMLElement} parent The parent wrapper
    * @param {Module} module The parent module instance
    * @param {Config} config A Config class instance
-   * @param {Store} store A Store class instance
+   * @param {DataBus} databus A DataBus class instance
    */
-  constructor ( parent, module, config, store ) {
+  constructor ( parent, module, config, databus ) {
     /**
      * A unique identifier
      * @type {String}
@@ -66,11 +66,11 @@ export class Component {
      */
     this.config = config
     /**
-     * The store class of the module parent
-     * @type {Store}
+     * The DataBus class of the module parent
+     * @type {DataBus}
      * @public
      */
-    this.store = store
+    this.databus = databus
 
     /**
      * The component view

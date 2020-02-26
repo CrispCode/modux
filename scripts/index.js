@@ -1,7 +1,7 @@
 'use strict'
 
 import { config } from './libs/config.js'
-import { store } from './libs/store.js'
+import { databus } from './libs/databus.js'
 
 import { Router } from './libs/router.js'
 
@@ -31,7 +31,7 @@ import { uid } from './utils/uid.js'
 
 export {
   config,
-  store,
+  databus,
 
   Router,
 

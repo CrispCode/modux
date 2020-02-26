@@ -1,4 +1,4 @@
-# Basic usage store
+# Basic usage databus
 
 #### /components/component1/template.html
 
@@ -22,8 +22,8 @@ export class Component1 extends Component {
   }
 
   execute() {
-    this.store.on( 'component1', ( value ) => {
-      this.store.emit( 'component2', value )
+    this.databus.on( 'component1', ( value ) => {
+      this.databus.emit( 'component2', value )
     }, true )
   }
 }
@@ -51,7 +51,7 @@ export class Component2 extends Component {
   }
 
   execute() {
-    this.store.on( 'component2', ( value ) => {
+    this.databus.on( 'component2', ( value ) => {
       this.element.innerHTML = value
     }, true )
   }
@@ -84,7 +84,7 @@ export class Layout extends Component {
   }
 
   execute() {
-    this.store.emit( 'component1', 'Hello' )
+    this.databus.emit( 'component1', 'Hello' )
   }
 }
 

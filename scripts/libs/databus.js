@@ -4,21 +4,21 @@ import { loop } from './../utils/loop.js'
 import { uid } from './../utils/uid.js'
 
 /**
- * A store class used to communicate between components
+ * A DataBus class used to communicate between components
  */
-class Store {
+class DataBus {
   /**
-   * Creates an instance of Store
+   * Creates an instance of DataBus
    */
   constructor () {
     /**
-     * Contains all the listeners subscribed to the store
+     * Contains all the listeners subscribed to the DataBus
      * @type {Object}
      * @private
      */
     this.__listeners = {}
     /**
-     * Contains all the data sent to the store. Is used when a handler is attached after the data has already been pushed.
+     * Contains all the data sent to the DataBus. Is used when a handler is attached after the data has already been pushed.
      * @type {Object}
      * @private
      */
@@ -26,7 +26,7 @@ class Store {
   }
 
   /**
-   * Method used to bind handlers to the store
+   * Method used to bind handlers to the DataBus
    * @param {String} eventname The event name
    * @param {Function} listener The handler for the event
    * @param {Boolen} [showPreviousData=false] Set to true if data is to be sent to the handler upon attachment, if set to false it will work as a standard event handler
@@ -62,15 +62,15 @@ class Store {
   }
 
   /**
-   * Returns an instance of Store
-   * @return { Store }
+   * Returns an instance of DataBus
+   * @return { DataBus }
    */
   create () {
-    return new Store()
+    return new DataBus()
   }
 }
 
 /**
- * Instance of Store to be used as singleton
+ * Instance of DataBus to be used as singleton
  */
-export let store = new Store()
+export let databus = new DataBus()
