@@ -35,10 +35,9 @@ export class Component {
    * Creates an instance of Component
    * @param {HTMLElement} parent The parent wrapper
    * @param {Module} module The parent module instance
-   * @param {Config} config A Config class instance
-   * @param {DataBus} databus A DataBus class instance
+   * @param {Store} store An instance of @crispcode/pushstore, see https://www.npmjs.com/package/@crispcode/pushstore
    */
-  constructor ( parent, module, config, databus ) {
+  constructor ( parent, module, store ) {
     /**
      * A unique identifier
      * @type {String}
@@ -60,17 +59,11 @@ export class Component {
      */
     this.module = module
     /**
-     * The config class of the module parent
-     * @type {Config}
+     * The pushstore instance of the module parent
+     * @type {Store}
      * @public
      */
-    this.config = config
-    /**
-     * The DataBus class of the module parent
-     * @type {DataBus}
-     * @public
-     */
-    this.databus = databus
+    this.store = store
 
     /**
      * The component view

@@ -5,8 +5,7 @@
 import { loop } from './../utils/loop.js'
 import { Router } from './router.js'
 
-import { config } from './config.js'
-import { databus } from './databus.js'
+import { store } from '@crispcode/pushstore'
 
 /**
  * The attribute name used to determine if an HTMLElement is a component
@@ -78,17 +77,11 @@ export class Module {
      */
     this.__dependencies = {}
     /**
-     * Contains a new instance of Config which is passed on to all components
-     * @type {Config}
+     * Contains a new instance of @crispcode/pushstore which is passed on to all components. See https://www.npmjs.com/package/@crispcode/pushstore
+     * @type {Store}
      * @public
      */
-    this.config = config.create()
-    /**
-     * Contains a new instance of DataBus which is passed on to all components
-     * @type {DataBus}
-     * @public
-     */
-    this.databus = databus.create()
+    this.store = store.create()
   }
 
   /**
@@ -99,7 +92,7 @@ export class Module {
    */
   __createComponent ( element, Component ) {
     if ( !element.moduxComponent ) {
-      element.moduxComponent = new Component( element, this, this.config, this.databus )
+      element.moduxComponent = new Component( element, this, this.store )
       element.moduxComponent.execute()
     }
   }
@@ -215,7 +208,7 @@ export class Module {
     /**
      * Holds the main Component which is used for the Module.
      */
-    this.__component = new this.__dependencies[ component ]( element, this, this.config, this.databus )
+    this.__component = new this.__dependencies[ component ]( element, this, this.store )
     element.moduxComponent = this.__component
     element.moduxComponent.execute()
   }

@@ -8,7 +8,6 @@ import DateTime from './../utils/datetime'
 import Device from './../utils/device'
 import Extend from './../utils/extend'
 import Font from './../utils/font'
-import Getter from './../utils/getter'
 import Html from './../utils/html'
 import Isnumber from './../utils/isnumber'
 import Isobject from './../utils/isobject'
@@ -18,7 +17,6 @@ import Loop from './../utils/loop'
 import Radians from './../utils/radians'
 import Rnd from './../utils/rnd'
 import Scroll from './../utils/scroll'
-import Setter from './../utils/setter'
 import Sounds from './../utils/sounds'
 import Uid from './../utils/uid'
 
@@ -29,7 +27,6 @@ const dependencies = {
   device: Device,
   extend: Extend,
   font: Font,
-  getter: Getter,
   html: Html,
   isnumber: Isnumber,
   isobject: Isobject,
@@ -39,7 +36,6 @@ const dependencies = {
   radians: Radians,
   rnd: Rnd,
   scroll: Scroll,
-  setter: Setter,
   sounds: Sounds,
   uid: Uid
 }
@@ -58,10 +54,10 @@ export class Layout extends Component {
 
     let module = this.element.querySelector( '.module' )
 
-    this.config.get( 'app' ).addDependency( name, dependencies[ name ] )
+    this.store.get( 'app' ).addDependency( name, dependencies[ name ] )
     module.innerHTML = '<section data-modux-component="' + name + '"></section>'
     setTimeout( () => {
-      this.config.get( 'app' ).removeDependency( name )
+      this.store.get( 'app' ).removeDependency( name )
     } )
   }
 

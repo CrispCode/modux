@@ -4,7 +4,7 @@
 
 ```
 
--- Module --------- [ DataBus ] --- [ Config ] ----
+-- Module -------- [ PushStore ] ------------------
 |                   /         \                   |
 |                  /           \                  |
 |                 /             \                 |
@@ -28,15 +28,12 @@
  - Modules are bound to an existing view by the user.
  - Once a module has been bound, any activity on its view's children will be monitored, and components will be created / modified / destroyed when changes occur in the DOM.
 
-
- ### What is a DataBus ?
- - The DataBus is a way of comunicating information between components.
- - An instance of DataBus is created when the module is created, and it is then shared with all its defined components.
+ ### What is a PushStore ?
+ - See [@crispcode/pushstore](https://www.npmjs.com/package/@crispcode/pushstore)
+ - We use the pushstore as a way of comunicating information between components.
+ - An instance of PushStore is created when the module is created, and it is then shared with all its defined components.
  - It works in a similar way to events, but with the added bonus of not being dependent on the race between emitters and listeners.
-
- ### What is a Config ?
- - The Config is a way of storing information for all components of a module.
- - An instance of Config is created when the module is created, and it is then shared with all its defined components.
+ - The PushStore instance is also used as a way of storing information for all components of a module.
  - Any data stored by any component or the module itself can be accessed by any other component or the module itself.
 
 
@@ -219,7 +216,7 @@ The contents of ```style.scss``` can look something like this:
 
                 // this.element will always have the result of this.template converted to html, for easy access to the view
                 // We will update the message in H1 based on our configuration
-                this.element.querySelector('h1').innerHTML = this.config.get('message-header')
+                this.element.querySelector('h1').innerHTML = this.store.get('message-header')
             }
 
         }
@@ -267,7 +264,7 @@ The contents of ```style.scss``` can look something like this:
             }
 
             execute () {
-                this.element.querySelector('.copyright').innerHTML = this.config.get('copyright')
+                this.element.querySelector('.copyright').innerHTML = this.store.get('copyright')
             }
 
         }
@@ -315,7 +312,7 @@ The contents of ```style.scss``` can look something like this:
 
     'use strict'
 
-    import { Module, config, logger } from '@crispcode/modux'
+    import { Module, logger } from '@crispcode/modux'
 
     import { ComponentLayout } from './components/layout'
 
@@ -324,8 +321,8 @@ The contents of ```style.scss``` can look something like this:
 
     let initialize = () => {
         // This is information that will be used in the header and footer components
-        config.set( 'message-header', 'Hello World! I am data stored in the application config' )
-        config.set( 'copyright', '&copy; CrispCode' )
+        store.set( 'message-header', 'Hello World! I am data stored in the application config' )
+        store.set( 'copyright', '&copy; CrispCode' )
 
         // Just so that we have some details about what is happening we are going to set logger to debug mode.
         logger.enabled( true )
@@ -374,6 +371,6 @@ The contents of ```style.scss``` can look something like this:
 
  Let's see what we've created. Run ```npm test```.
 
- There are a lot of features available in modux, such as DataBus for communication between components, a lot of utilities, as well as a router class for managing url changes. You can always clone the modux repository and run ```npm run docs``` to get the full documentation for it.
+ There are a lot of features available in modux, such as a lot of utilities, as well as a router class for managing url changes. You can always clone the modux repository and run ```npm run docs``` to get the full documentation for it.
 
  If you have any issues or questions please feel free to refer to the issues page in github. Bye!

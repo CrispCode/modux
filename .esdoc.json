@@ -13,8 +13,6 @@
           "files": [
             "./manual/getting-started.md",
             "./manual/basic-usage.md",
-            "./manual/basic-usage-config.md",
-            "./manual/basic-usage-databus.md",
             "./manual/basic-usage-router.md"
           ]
         }
