@@ -192,7 +192,7 @@ class Sounds {
    */
   mute ( mute ) {
     loop( this.__collection, ( sound ) => {
-      sound.muted = mute
+      sound.mute( mute )
     } )
   }
 
