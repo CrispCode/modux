@@ -9,9 +9,6 @@ const UglifyJSPlugin = require( 'uglifyjs-webpack-plugin' )
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' )
 const ImageminPlugin = require( 'imagemin-webpack-plugin' ).default
 
-const SpeedMeasurePlugin = require( 'speed-measure-webpack-plugin' )
-const smp = new SpeedMeasurePlugin()
-
 module.exports = () => {
   let prod = false
   if ( process.env.NODE_ENV === 'production' ) {
@@ -204,5 +201,5 @@ module.exports = () => {
     }
   } catch ( err ) {}
 
-  return smp.wrap( config )
+  return config
 }
