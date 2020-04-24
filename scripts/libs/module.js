@@ -98,12 +98,24 @@ export class Module {
   }
 
   /**
-   * Removes a component from an HTMLElement if it has one
+   * Removes a component from an HTMLElement if it has one, and removes all subcomponents
    * @param {HTMLElement} element The HTMLElement for which we want to remove the Component
    * @private
    */
   __removeComponent ( element ) {
     if ( element.moduxComponent ) {
+      // Destroy all children to prevent memory leak
+      const _destroyChildren = ( parent ) => {
+        loop( parent.children, ( child ) => {
+          if ( child.children.length > 0 ) {
+            _destroyChildren( child )
+          }
+          if ( child.moduxComponent ) {
+            child.moduxComponent.__destroy()
+          }
+        } )
+      }
+      _destroyChildren( element )
       element.moduxComponent.__destroy()
     }
   }
