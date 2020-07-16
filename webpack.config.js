@@ -27,9 +27,14 @@ module.exports = () => {
       inject: false,
       hash: false // Set to true in order to prevent css and js caching
     } ),
-    new CopyWebpackPlugin( [
-      { context: path.join( apps, 'public' ), from: '**/*', to: build }
-    ] ),
+    new CopyWebpackPlugin( {
+      patterns: [
+        {
+          from: path.join( apps, 'public' ),
+          to: build
+        }
+      ]
+    } ),
     new ImageminPlugin( {
       test: /\.(jpe?g|png|gif|svg)$/i,
       disable: !prod,
@@ -126,9 +131,9 @@ module.exports = () => {
             {
               loader: 'sass-loader',
               options: {
-                prependData: ( loaderContext ) => {
+                additionalData: ( content, loaderContext ) => {
                   const relativePath = path.relative( path.dirname( loaderContext.resourcePath ), path.join( __dirname, 'styles', 'index.scss' ) ).split( path.sep ).join( '/' )
-                  return '@import "' + relativePath + '";'
+                  return '@import "' + relativePath + '";\n' + content
                 }
               }
             }
@@ -149,9 +154,9 @@ module.exports = () => {
             {
               loader: 'sass-loader',
               options: {
-                prependData: ( loaderContext ) => {
+                additionalData: ( content, loaderContext ) => {
                   const relativePath = path.relative( path.dirname( loaderContext.resourcePath ), path.join( __dirname, 'styles', 'index.scss' ) ).split( path.sep ).join( '/' )
-                  return '@import "' + relativePath + '";'
+                  return '@import "' + relativePath + '";\n' + content
                 }
               }
             }
