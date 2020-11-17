@@ -57,7 +57,6 @@ In order to support older versions of browsers, you can use polyfills:
   | Device | `import { Device } from '@crispcode/modux'` | A static class used to get device information |
   | extend | `import { extend } from '@crispcode/modux'` | Extends an object with another object |
   | font | `import { font } from '@crispcode/modux'` | A font loader |
-  | getter | `import { getter } from '@crispcode/modux'` | Used to return a deep value from an Object. Use the "." separator to check subobjects |
   | html | `import { html } from '@crispcode/modux'` | Convert string to html |
   | isNumber | `import { isNumber } from '@crispcode/modux'` | Checks if the value is a number |
   | isObject | `import { isObject } from '@crispcode/modux'` | Checks if the object is an Object |
@@ -67,7 +66,6 @@ In order to support older versions of browsers, you can use polyfills:
   | radians | `import { radians } from '@crispcode/modux'` | Convert an angle from degrees to radians |
   | rnd | `import { rnd } from '@crispcode/modux'` | Generate a random number between two values |
   | scroll | `import { scroll } from '@crispcode/modux'` | A library used for scrolling window or an element |
-  | setter | `import { setter } from '@crispcode/modux'` | Used to set a deep value from an Object |
   | Sounds | `import { sonds } from '@crispcode/modux'` | A class used to manipulate Sounds |
   | uid | `import { uid } from '@crispcode/modux'` | Generates a random unique identifier |
 

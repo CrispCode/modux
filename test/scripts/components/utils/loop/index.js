@@ -74,6 +74,33 @@ export default class Index extends Utils {
       )
     )
 
+    // Step 3
+    test.querySelector( '.steps' ).appendChild(
+      this._createStep(
+        `
+          let o = [ 'value1', 'value2', 'value3' ]<br/>
+          let found = loop( o, ( value ) => {<br/>
+          &nbsp;&nbsp;if ( value === 'value2' ) {<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;return value<br/>
+          &nbsp;&nbsp;}<br/>
+          } )<br/>
+          resolve( found )<br/>
+        `,
+        () => {
+          return new Promise( ( resolve ) => {
+            let o = [ 'value1', 'value2', 'value3' ]
+            let found = loop( o, ( value ) => {
+              if ( value === 'value2' ) {
+                return value
+              }
+            } )
+            resolve( found )
+          } )
+        },
+        () => Promise.resolve( 'value2' )
+      )
+    )
+
     return test
   }
 

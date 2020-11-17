@@ -1,6 +1,6 @@
 {
   "name": "@crispcode/modux",
-  "version": "4.1.8",
+  "version": "4.1.9",
   "description": "A framework used in front end application creation",
   "author": "Crisp Code ( contact@crispcode.ro )",
   "keywords": [
@@ -28,7 +28,7 @@
     "url": "https://github.com/CrispCode/modux/issues"
   },
   "dependencies": {
-    "@crispcode/pushstore": "^1.0.6",
+    "@crispcode/pushstore": "^1.0.8",
     "@babel/core": "^7.10.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
