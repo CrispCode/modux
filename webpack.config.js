@@ -147,6 +147,28 @@ module.exports = () => {
           ]
         },
         {
+          test: /\.inline\.css$/,
+          use: [
+            {
+              loader: 'raw-loader'
+            }
+          ]
+        },
+        {
+          test: /^((?!\.inline).)*\.css$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                url: false
+              }
+            }
+          ]
+        },
+        {
           test: /\.(html)$/i,
           loader: 'raw-loader'
         },
