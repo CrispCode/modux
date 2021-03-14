@@ -164,6 +164,21 @@ export class Module {
   }
 
   /**
+   * Renders an HTMLElement to a Component as if it was a part of this module
+   * @param {HTMLElement} node The HTMLElement to be converted to a Component
+   */
+  createComponent ( node ) {
+    this.__loopOnElements( node, _attrComponent, ( e, attr ) => {
+      if ( this.__dependencies[ attr ] ) {
+        this.__createComponent( e, this.__dependencies[ attr ] )
+      }
+    } )
+    this.__loopOnElements( node, _attrLink, ( e ) => {
+      this.__createComponentLink( e )
+    } )
+  }
+
+  /**
    * Initializes the Module on a specific HTMLElement and loads the specified Component for it
    * @param {HTMLElement} element The HTMLElement used as the wrapper for the Module
    * @param {Component} component The Component to be used as the main Component

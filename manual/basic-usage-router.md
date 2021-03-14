@@ -27,7 +27,7 @@ export class Layout extends Component {
   }
 
   onStateChange ( url ) {
-    this.element.querySelector('.url').innerHTML = url
+    this.element.querySelector('.url').innerHTML = url.toString()
   }
 }
 
@@ -46,8 +46,6 @@ import { Module } from '@crispcode/modux'
 import { Layout } from './components/layout'
 
 let initialize = () => {
-
-  Router.setDynamicBase( true )
 
   // Create application
   let app = new Module( 'app' )

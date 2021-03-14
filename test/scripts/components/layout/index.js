@@ -1,6 +1,6 @@
 'use strict'
 
-import { Component, loop } from './../../../../scripts'
+import { Component, loop, html } from './../../../../scripts'
 
 import Approx from './../utils/approx'
 import Cookie from './../utils/cookie'
@@ -52,32 +52,38 @@ export class Layout extends Component {
       return
     }
 
-    let module = this.element.querySelector( '.module' )
+    let element = html( '<section data-modux-component="' + name + '"></section>' )
 
-    this.store.get( 'app' ).addDependency( name, dependencies[ name ] )
-    module.innerHTML = '<section data-modux-component="' + name + '"></section>'
+    this.module.addDependency( name, dependencies[ name ] )
+    this.module.createComponent( element )
+
+    let module = this.element.querySelector( '.module' )
+    module.innerHTML = ''
+    module.appendChild( element )
+
     setTimeout( () => {
-      this.store.get( 'app' ).removeDependency( name )
+      this.module.removeDependency( name )
     } )
   }
 
   onStateChange ( url ) {
-    let urlData = url.split( '#' )
+    url = new URL( url )
 
     // Update active menu
     loop( this.element.querySelectorAll( 'nav .menu-item' ), ( item ) => {
-      if ( urlData[ 0 ] === item.getAttribute( 'href' ) ) {
+      if ( url.pathname === item.getAttribute( 'href' ) ) {
         item.classList.add( 'active' )
       } else {
         item.classList.remove( 'active' )
       }
 
-      if ( urlData[ 1 ] === 'menu' ) {
+      if ( url.hash === '#menu' ) {
         this.element.classList.add( 'menu-open' )
       } else {
         this.element.classList.remove( 'menu-open' )
       }
     } )
-    this.loadComponent( urlData[ 0 ].substr( 1 ) )
+
+    this.loadComponent( url.pathname.substr( 1 ) )
   }
 }

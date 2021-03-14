@@ -17,7 +17,7 @@ export class Component {
 
   /**
    * The method gets called whenever the state changes
-   * @param {String} url The current url
+   * @param {URL} url The current url
    */
   onStateChange ( url ) {}
 

@@ -1,6 +1,6 @@
 /* globals XMLHttpRequest, FormData, document */
 
-import { loop } from './../utils/loop.js'
+import { extend } from './../utils/extend.js'
 
 /**
  * This class is responsible for server communication using http requests
@@ -12,7 +12,7 @@ export class Communication {
    */
   constructor ( form ) {
     /**
-     * The FormData to use when sending the request
+     * The FormData to use when sending the request, see https://developer.mozilla.org/en-US/docs/Web/API/FormData
      * @type {FormData}
      * @private
      */
@@ -32,22 +32,11 @@ export class Communication {
   }
 
   /**
-   * Adds a field to the request
-   * @param {String} key Field name
-   * @param {String} value Field value
+   * Returns the FormData object attached to the request. This makes it easier to control the fields.
+   * @return {FormData} FormData attached to the request
    */
-  addField ( key, value ) {
-    this.__form.append( key, value )
-  }
-
-  /**
-   * Adds a list of fields to the request
-   * @param {Object} fields The object properties become the parameters and the values are the parameter values
-   */
-  addFields ( fields ) {
-    loop( fields, ( value, key ) => {
-      this.__form.append( key, value )
-    } )
+  get form () {
+    return this.__form
   }
 
   /**
@@ -57,6 +46,38 @@ export class Communication {
    */
   setHeader ( name, value ) {
     this.__headers[ name ] = value
+  }
+
+  /**
+   * Gets a header by key
+   * @param {String} name Header name
+   * @return {String} Header value
+   */
+  getHeader ( name ) {
+    return this.__headers[ name ]
+  }
+
+  /**
+   * Delete a header by key
+   * @param {String} name Header name
+   */
+  deleteHeader ( name ) {
+    delete this.__headers[ name ]
+  }
+
+  /**
+   * Returns an object containing all the headers sets
+   * @return {Object} Object containing all the headers
+   */
+  getHeaders () {
+    return extend( {}, this.__headers )
+  }
+
+  /**
+   * Clears all the set headers
+   */
+  clearHeaders () {
+    this.__headers = {}
   }
 
   /**

@@ -5,9 +5,8 @@ const webpack = require( 'webpack' )
 
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' )
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' )
-const UglifyJSPlugin = require( 'uglifyjs-webpack-plugin' )
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' )
-const ImageminPlugin = require( 'imagemin-webpack-plugin' ).default
+const ImageMinimizerPlugin = require( 'image-minimizer-webpack-plugin' )
 
 module.exports = () => {
   let prod = false
@@ -35,23 +34,8 @@ module.exports = () => {
         }
       ]
     } ),
-    new ImageminPlugin( {
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      disable: !prod,
-      jpegtran: {
-        progressive: true
-      },
-      pngquant: {
-        strip: true,
-        quality: '30-50'
-      }
-    } ),
     new webpack.DefinePlugin( { 'PRODUCTION': prod } )
   ]
-
-  if ( prod ) {
-    plugins.push( new UglifyJSPlugin() )
-  }
 
   let config = {
     mode: 'none',
@@ -167,6 +151,37 @@ module.exports = () => {
           loader: 'raw-loader'
         },
         {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          use: [
+            {
+              loader: 'url-loader'
+            },
+            {
+              loader: ImageMinimizerPlugin.loader,
+              options: {
+                severityError: 'warning', // Ignore errors on corrupted images
+                minimizerOptions: {
+                  plugins: [
+                    [ 'gifsicle', { interlaced: true } ],
+                    [ 'jpegtran', { progressive: true } ],
+                    [ 'optipng', { optimizationLevel: 5 } ],
+                    [
+                      'svgo',
+                      {
+                        plugins: [
+                          {
+                            removeViewBox: false
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
           test: /\.(frag)$/i,
           loader: 'raw-loader'
         }
@@ -177,21 +192,12 @@ module.exports = () => {
       hints: ( prod ) ? 'warning' : false
     },
     optimization: {
-      namedModules: false,
-      namedChunks: !prod,
       nodeEnv: process.env.NODE_ENV,
       flagIncludedChunks: true,
-      occurrenceOrder: true,
       sideEffects: true,
       usedExports: true,
       concatenateModules: true,
-      splitChunks: {
-        hidePathInfo: true,
-        minSize: 30000,
-        maxAsyncRequests: 5,
-        maxInitialRequests: 3
-      },
-      noEmitOnErrors: prod,
+      emitOnErrors: !prod,
       checkWasmTypes: true,
       minimize: prod
     }

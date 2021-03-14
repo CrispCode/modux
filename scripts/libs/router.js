@@ -1,16 +1,9 @@
-/* globals window, document, history, location */
+/* globals window, history */
 
 'use strict'
 
-import { logger } from './../utils/logger.js'
 import { loop } from './../utils/loop.js'
 import { uid } from './../utils/uid.js'
-
-/**
- * If set to true it will change the base tag every time a redirect occurs
- * @type {Boolean}
- */
-let baseEnabled = false
 
 /**
  * Holds all the handlers bound to the router class. Since the class is static, all imports will point to the same class
@@ -23,17 +16,7 @@ let listeners = {}
  * @type {Function}
  */
 const handler = function () {
-  const url = location.pathname + location.search + location.hash
-  logger.info( 'URL: ', url )
-
-  if ( baseEnabled ) {
-    let baseTag = document.head.querySelector( 'base' )
-    if ( !baseTag ) {
-      baseTag = document.createElement( 'base' )
-      document.head.appendChild( baseTag )
-    }
-    baseTag.href = location.pathname
-  }
+  const url = window.location.toString()
 
   loop( listeners, ( listener ) => {
     listener( url )
@@ -64,16 +47,9 @@ history.pushState = function () {
 
 /**
  * A static class which is responsible for handling state and url change
+ * Remember to remove <base/> in most common scenarios
  */
 export class Router {
-  /**
-   * Determines if the base tag is modified each time a redirect occurs
-   * @param {Boolean} enabled If true the base tag will be updated each time the pathname changes in the application
-   */
-  static setDynamicBase ( enabled ) {
-    baseEnabled = !!enabled
-  }
-
   /**
    * A static method used to push a new state
    * @param {String} url The new url
