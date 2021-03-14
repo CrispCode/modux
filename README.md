@@ -35,7 +35,7 @@ You can check the manual files for a quick introduction into modux. You can get 
 In order to support older versions of browsers, you can use polyfills:
 
 ```
-    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CMutationObserver%2CString.prototype.padStart%2Cconsole.info%2CNumber.isInteger%2CMath.sign"></script>
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CMutationObserver%2CString.prototype.padStart%2Cconsole.info"></script>
 ```
 
 ## Modux classes
