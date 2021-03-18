@@ -30,7 +30,8 @@ module.exports = () => {
       patterns: [
         {
           from: path.join( apps, 'public' ),
-          to: build
+          to: build,
+          noErrorOnMissing: true
         }
       ]
     } ),

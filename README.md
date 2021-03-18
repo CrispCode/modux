@@ -32,11 +32,7 @@ You can check the manual files for a quick introduction into modux. You can get 
 
 ## Polyfill
 
-In order to support older versions of browsers, you can use polyfills:
-
-```
-    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CMutationObserver%2CString.prototype.padStart%2Cconsole.info"></script>
-```
+In order to support older versions of browsers, you can use [polyfill.io](https://polyfill.io/)
 
 ## Modux classes
 

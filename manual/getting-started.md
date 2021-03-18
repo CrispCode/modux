@@ -134,6 +134,7 @@ The contents of ```style.scss``` can look something like this:
             index.js
             template.html
     app.js
+    app.scss
     app.html
 ```
 
