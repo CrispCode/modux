@@ -1,6 +1,6 @@
 {
   "name": "@crispcode/modux",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "A framework used in front end application creation",
   "author": "Crisp Code ( contact@crispcode.ro )",
   "keywords": [
@@ -34,7 +34,7 @@
     "@babel/preset-env": "^7.13.10",
     "@babel/register": "^7.13.8",
     "babel-loader": "^8.2.2",
-    "copy-webpack-plugin": "^8.0.0",
+    "copy-webpack-plugin": "^9.0.0",
     "css-loader": "^5.1.2",
     "eslint": "^7.21.0",
     "file-loader": "^6.2.0",
@@ -45,7 +45,7 @@
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^9.0.0",
     "mini-css-extract-plugin": "^1.3.9",
-    "node-sass": "^5.0.0",
+    "node-sass": "^6.0.0",
     "raw-loader": "^4.0.2",
     "sass-loader": "^11.0.1",
     "url-loader": "^4.1.1",
