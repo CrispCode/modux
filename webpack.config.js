@@ -134,9 +134,7 @@ module.exports = () => {
               loader: 'css-loader',
               options: {
                 url: false,
-                modules: {
-                  compileType: 'icss'
-                }
+                modules: false
               }
             },
             {
@@ -168,9 +166,7 @@ module.exports = () => {
               loader: 'css-loader',
               options: {
                 url: false,
-                modules: {
-                  compileType: 'icss'
-                }
+                modules: false
               }
             }
           ]
