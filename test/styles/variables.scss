@@ -1,0 +1,12 @@
+$breakpoint: 1024px;
+
+@mixin bp {
+    @media only screen and (max-width: $breakpoint){
+       @content;
+   }
+}
+
+// Webpack magic
+:export {
+    breakpoint: $breakpoint
+}

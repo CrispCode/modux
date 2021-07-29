@@ -7,6 +7,8 @@ const template = require( './template.html' )
 const test = require( './test.html' )
 const step = require( './step.html' )
 
+import './../../../styles/components/utils.scss'
+
 export class Utils extends Component {
   get template () {
     return template

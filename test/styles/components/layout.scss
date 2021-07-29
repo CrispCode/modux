@@ -1,3 +1,5 @@
+@import './../variables.scss';
+
 .page {
     display: flex;
     flex-direction: row;
@@ -61,7 +63,7 @@
         line-height: 4rem;
     }
 
-    @include bp-l {
+    @include bp {
         nav {
             display: none;
             max-width: 100%;

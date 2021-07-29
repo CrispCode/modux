@@ -134,7 +134,9 @@ module.exports = () => {
               loader: 'css-loader',
               options: {
                 url: false,
-                modules: false
+                modules: {
+                  mode: 'icss'
+                }
               }
             },
             {
@@ -166,7 +168,9 @@ module.exports = () => {
               loader: 'css-loader',
               options: {
                 url: false,
-                modules: false
+                modules: {
+                  mode: 'icss'
+                }
               }
             }
           ]
@@ -235,7 +239,7 @@ module.exports = () => {
       console.log( '\nUsing new configuration from modux.config.js\n\n' )
       config = newConfig( config )
     }
-  } catch ( err ) {}
+  } catch ( err ) { }
 
   return config
 }

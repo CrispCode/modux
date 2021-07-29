@@ -20,6 +20,8 @@ import Scroll from './../utils/scroll'
 import Sounds from './../utils/sounds'
 import Uid from './../utils/uid'
 
+import './../../../styles/components/layout.scss'
+
 const dependencies = {
   approx: Approx,
   cookie: Cookie,

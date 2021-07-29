@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 html, body {
     position: relative;
     padding: 0;
@@ -5,7 +7,3 @@ html, body {
     width: 100%;
     font-family: 'Arial';
 }
-
-@import 'components/layout.scss';
-
-@import 'components/utils.scss';

@@ -6,6 +6,8 @@ import { Module, logger } from './../../scripts'
 
 import { Layout } from './components/layout'
 
+import variables from './../styles/index.scss'
+
 let initialize = () => {
   // Create application
   let app = new Module( 'app' )
@@ -17,6 +19,7 @@ let initialize = () => {
   logger.enabled( app.store.get( 'core.debug' ) )
 
   logger.info( 'Application start' )
+  logger.log( 'Breakpoint is at ', variables.breakpoint )
 
   // Start application
   app.bootstrap( document.querySelector( 'body' ), 'layout' )
