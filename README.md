@@ -39,7 +39,6 @@ In order to support older versions of browsers, you can use [polyfill.io](https:
   |Name|Usage|Description|
   |:---:|---|---|
   | Router | `import { Router } from '@crispcode/modux'` | A static class used to manipulate states and urls |
-  | Communication | `import { Communication } from '@crispcode/modux'` | The Communication class, used to handler http requests |
   | Component | `import { Component } from '@crispcode/modux'` | The Component class. Components are the backbone of the application |
   | Module | `import { Module } from '@crispcode/modux'` | The Module class. Modules are the main part of modux |
 
@@ -48,6 +47,7 @@ In order to support older versions of browsers, you can use [polyfill.io](https:
   |Name|Usage|Description|
   |:---:|---|---|
   | approx | `import { approx } from '@crispcode/modux'` | Used to approximate a number to a certain number of decimals |
+  | Communication | `import { Communication } from '@crispcode/modux'` | The Communication class, used to handler http requests |
   | Cookie | `import { Cookie } from '@crispcode/modux'` | A static class used to manipulate cookies |
   | DateTime | `import { DateTime } from '@crispcode/modux'` | A Date class wrapper |
   | Device | `import { Device } from '@crispcode/modux'` | A static class used to get device information |
@@ -57,12 +57,12 @@ In order to support older versions of browsers, you can use [polyfill.io](https:
   | isNumber | `import { isNumber } from '@crispcode/modux'` | Checks if the value is a number |
   | isObject | `import { isObject } from '@crispcode/modux'` | Checks if the object is an Object |
   | loader | `import { loader } from '@crispcode/modux'` | The Loader class is used to preload files |
-  | Logger | `import { Logger } from '@crispcode/modux'` | A class to mimic window.console |
+  | logger | `import { logger } from '@crispcode/modux'` | A class to mimic window.console |
   | loop | `import { loop } from '@crispcode/modux'` | Loop through a collection Object or Array |
   | radians | `import { radians } from '@crispcode/modux'` | Convert an angle from degrees to radians |
   | rnd | `import { rnd } from '@crispcode/modux'` | Generate a random number between two values |
   | scroll | `import { scroll } from '@crispcode/modux'` | A library used for scrolling window or an element |
-  | Sounds | `import { sonds } from '@crispcode/modux'` | A class used to manipulate Sounds |
+  | sounds | `import { sounds } from '@crispcode/modux'` | A class used to manipulate Sounds |
   | uid | `import { uid } from '@crispcode/modux'` | Generates a random unique identifier |
 
 ## Configuration

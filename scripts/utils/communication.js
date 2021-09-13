@@ -1,6 +1,6 @@
 /* globals XMLHttpRequest, FormData, document */
 
-import { extend } from './../utils/extend.js'
+import { extend } from './extend.js'
 
 /**
  * This class is responsible for server communication using http requests

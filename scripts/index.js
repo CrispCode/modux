@@ -2,11 +2,11 @@
 
 import { Router } from './libs/router.js'
 
-import { Communication } from './libs/communication'
-import { Component } from './libs/component'
+import { Component } from './libs/component.js'
 import { Module } from './libs/module.js'
 
 import { approx } from './utils/approx.js'
+import { Communication } from './utils/communication.js'
 import { Cookie } from './utils/cookie.js'
 import { DateTime } from './utils/datetime.js'
 import { Device } from './utils/device.js'
@@ -27,9 +27,8 @@ import { uid } from './utils/uid.js'
 export {
   Router,
 
-  Communication,
   Component,
   Module,
 
-  approx, Cookie, DateTime, Device, extend, Font, html, isNumber, isObject, loader, logger, loop, radians, rnd, scroll, sounds, uid
+  approx, Communication, Cookie, DateTime, Device, extend, Font, html, isNumber, isObject, loader, logger, loop, radians, rnd, scroll, sounds, uid
 }
