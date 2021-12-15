@@ -3,6 +3,7 @@
 import { Component, loop, html } from './../../../../scripts'
 
 import Approx from './../utils/approx'
+import Communication from './../utils/communication'
 import Cookie from './../utils/cookie'
 import DateTime from './../utils/datetime'
 import Device from './../utils/device'
@@ -24,6 +25,7 @@ import './../../../styles/components/layout.scss'
 
 const dependencies = {
   approx: Approx,
+  communication: Communication,
   cookie: Cookie,
   datetime: DateTime,
   device: Device,

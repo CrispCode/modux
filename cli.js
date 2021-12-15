@@ -18,8 +18,8 @@ const hostname = ( process.platform === 'win32' ) ? 'localhost' : '0.0.0.0'
 const port = 8080
 
 if ( env === 'development' ) {
-  const server = new WebpackDevServer( compiler, config.devServer )
-  server.listen( port, hostname, ( err ) => {
+  const server = new WebpackDevServer( config.devServer, compiler )
+  server.start( port, hostname, ( err ) => {
     if ( err ) {
       console.log( err )
     }

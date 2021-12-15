@@ -53,24 +53,22 @@ module.exports = () => {
     },
     devServer: {
       open: true,
-      publicPath: '/',
-      hot: !( prod ),
-      injectHot: !( prod ),
-      inline: !( prod ),
-      liveReload: !( prod ),
-      contentBase: build,
-      historyApiFallback: true,
-      disableHostCheck: true,
-      stats: {
-        colors: true
+      static: {
+        publicPath: '/',
+        directory: build
       },
+      hot: !( prod ),
+      liveReload: !( prod ),
+      historyApiFallback: true,
+      allowedHosts: 'all',
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': 'true',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
       },
-      before: ( app ) => {
+      onBeforeSetupMiddleware: ( server ) => {
+        let app = server.app
         // Allow all requests
         app.post( '*', ( req, res ) => {
           res.redirect( req.originalUrl )

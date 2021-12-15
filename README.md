@@ -47,7 +47,7 @@ In order to support older versions of browsers, you can use [polyfill.io](https:
   |Name|Usage|Description|
   |:---:|---|---|
   | approx | `import { approx } from '@crispcode/modux'` | Used to approximate a number to a certain number of decimals |
-  | Communication | `import { Communication } from '@crispcode/modux'` | The Communication class, used to handler http requests |
+  | Communication | `import { Communication } from '@crispcode/modux'` | The Communication class, used to handle http requests |
   | Cookie | `import { Cookie } from '@crispcode/modux'` | A static class used to manipulate cookies |
   | DateTime | `import { DateTime } from '@crispcode/modux'` | A Date class wrapper |
   | Device | `import { Device } from '@crispcode/modux'` | A static class used to get device information |

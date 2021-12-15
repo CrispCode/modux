@@ -1,6 +1,6 @@
 {
   "name": "@crispcode/modux",
-  "version": "4.2.3",
+  "version": "4.2.4",
   "description": "A framework used in front end application creation",
   "author": "Crisp Code ( contact@crispcode.ro )",
   "keywords": [
@@ -34,24 +34,24 @@
     "@babel/preset-env": "^7.14.8",
     "@babel/register": "^7.14.5",
     "babel-loader": "^8.2.2",
-    "copy-webpack-plugin": "^9.0.1",
+    "copy-webpack-plugin": "^10.1.0",
     "css-loader": "^6.2.0",
-    "eslint": "^7.31.0",
+    "eslint": "^8.4.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
-    "image-minimizer-webpack-plugin": "^2.2.0",
+    "image-minimizer-webpack-plugin": "^3.0.1",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-optipng": "^8.0.0",
-    "imagemin-svgo": "^9.0.0",
+    "imagemin-svgo": "^10.0.0",
     "mini-css-extract-plugin": "^2.1.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "raw-loader": "^4.0.2",
     "sass-loader": "^12.1.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.47.0",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.6.0"
   },
   "devDependencies": {
     "esdoc": "^1.1.0",
