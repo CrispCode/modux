@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = ( config ) => {
-  config.devServer.onBeforeSetupMiddleware = ( server ) => {
+  config.devServer.setupMiddlewares = ( middlewares, server ) => {
     let app = server.app
     app.post( '/what-did-i-send', ( req, res ) => {
       const chunks = []
@@ -20,6 +20,8 @@ module.exports = ( config ) => {
         res.end( JSON.stringify( result ) )
       } )
     } )
+
+    return middlewares
   }
 
   return config

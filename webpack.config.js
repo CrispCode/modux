@@ -67,7 +67,7 @@ module.exports = () => {
         'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
       },
-      onBeforeSetupMiddleware: ( server ) => {
+      setupMiddlewares: ( middlewares, server ) => {
         let app = server.app
         // Allow all requests
         app.post( '*', ( req, res ) => {
@@ -82,6 +82,8 @@ module.exports = () => {
         app.options( '*', ( req, res ) => {
           res.redirect( req.originalUrl )
         } )
+
+        return middlewares
       }
     },
     resolve: {
