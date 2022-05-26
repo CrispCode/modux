@@ -18,12 +18,12 @@
         @content;
    }
 }
-@mixin animation($str) {
-   -webkit-animation: #{$str};
-   -moz-animation   : #{$str};
-   -ms-animation    : #{$str};
-   -o-animation     : #{$str};
-   animation        : #{$str};
+@mixin animation($args...) {
+   -webkit-animation: $args;
+   -moz-animation   : $args;
+   -ms-animation    : $args;
+   -o-animation     : $args;
+   animation        : $args;
 }
 
 // Examples
@@ -36,7 +36,7 @@
 //   width: 100px;
 //   height: 100px;
 //   background: black;
-//   @include animation('slide-down 5s 3');
+//   @include animation(slide-down 5s 3);
 // }
 
 // Transitions
