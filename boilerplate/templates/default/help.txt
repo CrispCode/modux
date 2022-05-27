@@ -1,0 +1,12 @@
+########################################################
+#                                                      #
+#  MODUX BOILERPLATE - template 'default'              #
+#                                  by CrispCode        #
+#                                                      #
+########################################################
+
+Syntax:
+    modux boilerplate default { command }
+
+Commands:
+    "create" - Creates a new environment based on template

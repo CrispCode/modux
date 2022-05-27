@@ -1,0 +1,15 @@
+┌─┐┌─┐ ┌───┐ ┌───┐ ┌┐ ┌┐ ┌─┐┌─┐
+│ └┘ │ │┌─┐│ └┐┌┐│ ││ ││ └┐└┘┌┘
+│┌┐┌┐│ ││ ││  ││││ ││ ││  └┐┌┘ 
+││││││ ││ ││  ││││ ││ ││  ┌┘└┐ 
+││││││ │└─┘│ ┌┘└┘│ │└─┘│ ┌┘┌┐└┐
+└┘└┘└┘ └───┘ └───┘ └───┘ └─┘└─┘
+                   by CrispCode
+
+A framework used in front end application creation. Please see readme.md for additional information.
+
+Commands:
+    modux start - Starts the modux project in development mode
+    modux build - Compiles the project into the build folder, ready for production
+    modux boilerplate - Provides information on the modux boilerplate
+    

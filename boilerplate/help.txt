@@ -1,0 +1,17 @@
+########################################################
+#                                                      #
+#  MODUX BOILERPLATE - evironment builder              #
+#                                  by CrispCode        #
+#                                                      #
+########################################################
+
+Syntax:
+    modux boilerplate { template } { command }
+
+Templates:
+    - templates are packages available to modux boilerplate
+    - to get a list of all templates available type: `modux boilerplate list`
+
+Commands:
+    - are specific to each template
+    - run `modux boilerplate { template }` to see a list of commands for a specific template

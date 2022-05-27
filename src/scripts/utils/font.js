@@ -7,7 +7,6 @@ import { loop } from './loop.js'
 /**
  * Contains the Adobe Blank font code to be used in testing
  * @external {Adobe Blank} https://github.com/adobe-fonts/adobe-blank
- * @private
  */
 import AdobeBlankCss from './../../styles/adobe-blank.inline.scss'
 

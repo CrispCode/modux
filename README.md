@@ -1,4 +1,4 @@
-# modux
+# MODUX
 A framework used in front end application creation
 
 ## Installation
@@ -9,11 +9,19 @@ npm install @crispcode/modux --save-dev
 
 ## How to use
 
+Modux has the following commands available from the command line:
+Command|Description
+-|-
+`modux start` | Starts the local modux project in development mode
+`modux build` | Compiles the project for production. Output will be in the `build` directory
+`modux boilerplate` | Provides information on modux boilerplate. This is used to create project structures based on a template
+
+
 Add to your package.json scripts:
 ```
   "scripts": {
-    "test": "modux dev",
-    "build": "modux prod"
+    "test": "modux start",
+    "build": "modux build"
   }
 ```
 

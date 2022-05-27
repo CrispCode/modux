@@ -9,7 +9,15 @@ class Logger {
    * @param {String} [id] The identifier to appear before every output
    */
   constructor ( id ) {
+    /**
+     * Stores a unique identifier to pass to the begning of outputs
+     * @private
+     */
     this.__id = id || '[ APP ]'
+    /**
+     * Stores a boolean value which determines if output will be done or not
+     * @private
+     */
     this.__debug = false
   }
 

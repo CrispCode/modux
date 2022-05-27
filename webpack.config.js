@@ -8,6 +8,8 @@ const CopyWebpackPlugin = require( 'copy-webpack-plugin' )
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' )
 const ImageMinimizerPlugin = require( 'image-minimizer-webpack-plugin' )
 
+const Output = require( __dirname + '/utils/Output.js' )
+
 module.exports = () => {
   let prod = false
   if ( process.env.NODE_ENV === 'production' ) {
@@ -16,8 +18,6 @@ module.exports = () => {
 
   let apps = process.cwd()
   let build = path.join( process.cwd(), 'build' )
-
-  console.log( 'LOADING APPLICATION - ' + ( ( prod ) ? 'PRODUCTION' : 'DEVELOPMENT' ) )
 
   let plugins = [
     new MiniCssExtractPlugin( { filename: '[name].min.css' } ),
@@ -39,6 +39,8 @@ module.exports = () => {
   ]
 
   let config = {
+    stats: 'summary',
+
     mode: 'none',
     cache: !prod,
     entry: {
@@ -84,6 +86,9 @@ module.exports = () => {
         } )
 
         return middlewares
+      },
+      client: {
+        progress: true
       }
     },
     resolve: {
@@ -117,7 +122,7 @@ module.exports = () => {
               loader: 'sass-loader',
               options: {
                 additionalData: ( content, loaderContext ) => {
-                  const relativePath = path.relative( path.dirname( loaderContext.resourcePath ), path.join( __dirname, 'styles', 'index.scss' ) ).split( path.sep ).join( '/' )
+                  const relativePath = path.relative( path.dirname( loaderContext.resourcePath ), path.join( __dirname, 'src', 'styles', 'index.scss' ) ).split( path.sep ).join( '/' )
                   return '@import "' + relativePath + '";\n' + content
                 }
               }
@@ -143,7 +148,7 @@ module.exports = () => {
               loader: 'sass-loader',
               options: {
                 additionalData: ( content, loaderContext ) => {
-                  const relativePath = path.relative( path.dirname( loaderContext.resourcePath ), path.join( __dirname, 'styles', 'index.scss' ) ).split( path.sep ).join( '/' )
+                  const relativePath = path.relative( path.dirname( loaderContext.resourcePath ), path.join( __dirname, 'src', 'styles', 'index.scss' ) ).split( path.sep ).join( '/' )
                   return '@import "' + relativePath + '";\n' + content
                 }
               }
@@ -236,7 +241,7 @@ module.exports = () => {
   try {
     let newConfig = require( path.join( apps, 'modux.config.js' ) )
     if ( typeof newConfig === 'function' ) {
-      console.log( '\nUsing new configuration from modux.config.js\n\n' )
+      Output.log( 'Using new configuration from modux.config.js\n\n' )
       config = newConfig( config )
     }
   } catch ( err ) { }
