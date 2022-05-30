@@ -3,8 +3,13 @@ A framework used in front end application creation
 
 ## Installation
 
-```
+```sh
 npm install @crispcode/modux --save-dev
+```
+
+You can also create a basic project structure without the need to install modux, by using the npx command:
+```sh
+npx --package=@crispcode/modux -c "modux boilerplate basic create"
 ```
 
 ## How to use
