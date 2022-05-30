@@ -7,5 +7,13 @@
     .page {
         display: block;
         position: relative;
+        padding: 1rem 1rem 5rem;
+        box-sizing: border-box;
+    }
+
+    .logo {
+        display: block;
+        margin: auto;
+        width: 10rem;
     }
 }

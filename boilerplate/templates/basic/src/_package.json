@@ -2,9 +2,8 @@
     "name": "<<% name %>>",
     "version": "1.0.0",
     "description": "<<% name %>>",
-    "author": "<<% author %>>",
     "engines": {
-      "node": ">=10.0.0",
+      "node": ">=14.0.0",
       "npm": ">=6.0.0"
     },
     "repository": {
@@ -18,8 +17,8 @@
       "@crispcode/modux": "^4.1.7"
     },
     "scripts": {
-      "test": "modux dev",
-      "build": "modux prod"
+      "start": "modux start",
+      "build": "modux build"
     }
   }
   

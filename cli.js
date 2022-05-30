@@ -43,6 +43,8 @@ const help = () => {
       return file.read()
     } )
     .then( ( data ) => {
+      const info = require( __dirname + '/package.json' )
+      Output.write( 'Version: ' + info.version )
       Output.write( data )
     } )
 }

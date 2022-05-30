@@ -20,12 +20,12 @@ Command|Description
 Add to your package.json scripts:
 ```
   "scripts": {
-    "test": "modux start",
+    "start": "modux start",
     "build": "modux build"
   }
 ```
 
-To run use: `npm test` or `npm run build`
+To run use: `npm start` or `npm run build`
 
 ## Documentation & Testing
 

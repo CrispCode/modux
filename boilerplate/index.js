@@ -70,7 +70,7 @@ module.exports = ( template, command ) => {
         return execute( __dirname + path.sep + 'templates' + path.sep + template, template, command )
       } else if ( template === 'list' ) {
         Output.info( 'Avilable templates: ' )
-        Output.write( '- ' + list.join( ',\n - ' ) )
+        Output.write( ' - ' + list.join( ',\n - ' ) )
       } else {
         // Check external sources
         try {

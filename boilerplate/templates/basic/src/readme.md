@@ -10,11 +10,9 @@
 
 - In order to locally test the application, use:
 ```
-    modux dev
+    modux start
 ```
 - In order to generate files for production, use:
 ```
-    modux prod
+    modux run build
 ```
-
-Generated using [MODUX-BOILERPLATE](https://www.npmjs.com/package/@crispcode/modux-boilerplate)
