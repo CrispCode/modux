@@ -1,6 +1,6 @@
 {
   "name": "@crispcode/modux",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "A framework used in front end application creation",
   "author": "Crisp Code ( contact@crispcode.ro )",
   "keywords": [
@@ -51,7 +51,7 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0",
+    "webpack-dev-server": "^4.9.1",
     "ncp": "^2.0.0"
   },
   "devDependencies": {
