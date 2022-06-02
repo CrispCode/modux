@@ -14,5 +14,5 @@
 ```
 - In order to generate files for production, use:
 ```
-    modux run build
+    modux build
 ```

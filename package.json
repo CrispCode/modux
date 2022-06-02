@@ -1,6 +1,6 @@
 {
   "name": "@crispcode/modux",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "A framework used in front end application creation",
   "author": "Crisp Code ( contact@crispcode.ro )",
   "keywords": [
@@ -16,8 +16,8 @@
   ],
   "access": "public",
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=16.15.0",
+    "npm": ">=8.5.5"
   },
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
@@ -63,8 +63,8 @@
   },
   "main": "./src/scripts/index.js",
   "scripts": {
-    "test": "cd src/test && node ./../../cli.js start",
-    "test-build": "cd src/test && node ./../../cli.js build",
+    "test": "cd test && node ./../cli.js start",
+    "test-build": "cd test && node ./../cli.js build",
     "docs": "rm -rf ./docs && ./node_modules/.bin/esdoc && open ./docs/index.html"
   }
 }
