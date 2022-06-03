@@ -14,7 +14,7 @@
       "url": ""
     },
     "dependencies": {
-      "@crispcode/modux": "^5.0.1"
+      "@crispcode/modux": "^5.0.4"
     },
     "scripts": {
       "start": "modux start",

@@ -50,10 +50,6 @@ module.exports = {
             {
               from: path.resolve( './' ) + path.sep + parameters.get( 'name' ) + path.sep + '_package.json',
               to: path.resolve( './' ) + path.sep + parameters.get( 'name' ) + path.sep + 'package.json'
-            },
-            {
-              from: path.resolve( './' ) + path.sep + parameters.get( 'name' ) + path.sep + '_.eslintrc',
-              to: path.resolve( './' ) + path.sep + parameters.get( 'name' ) + path.sep + '.eslintrc'
             }
           ]
         }
