@@ -77,6 +77,7 @@ In order to support older versions of browsers, you can use [polyfill.io](https:
   | scroll | `import { scroll } from '@crispcode/modux'` | A library used for scrolling window or an element |
   | sounds | `import { sounds } from '@crispcode/modux'` | A class used to manipulate Sounds |
   | uid | `import { uid } from '@crispcode/modux'` | Generates a random unique identifier |
+  | Url | `import { Url } from '@crispcode/modux'` | A class used to manipulate urls |
 
 ## Configuration
 

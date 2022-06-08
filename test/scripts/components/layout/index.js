@@ -20,6 +20,7 @@ import Rnd from './../utils/rnd'
 import Scroll from './../utils/scroll'
 import Sounds from './../utils/sounds'
 import Uid from './../utils/uid'
+import Url from './../utils/url'
 
 import './../../../styles/components/layout.scss'
 
@@ -41,7 +42,8 @@ const dependencies = {
   rnd: Rnd,
   scroll: Scroll,
   sounds: Sounds,
-  uid: Uid
+  uid: Uid,
+  url: Url
 }
 
 const template = require( './template.html' )

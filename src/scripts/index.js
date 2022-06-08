@@ -23,6 +23,7 @@ import { rnd } from './utils/rnd.js'
 import { scroll } from './utils/scroll.js'
 import { sounds } from './utils/sounds.js'
 import { uid } from './utils/uid.js'
+import { Url } from './utils/url.js'
 
 export {
   Router,
@@ -30,5 +31,5 @@ export {
   Component,
   Module,
 
-  approx, Communication, Cookie, DateTime, Device, extend, Font, html, isNumber, isObject, loader, logger, loop, radians, rnd, scroll, sounds, uid
+  approx, Communication, Cookie, DateTime, Device, extend, Font, html, isNumber, isObject, loader, logger, loop, radians, rnd, scroll, sounds, uid, Url
 }
