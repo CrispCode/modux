@@ -65,7 +65,7 @@
 
     export class ComponentHeader extends Component {
         get template () { 
-            // The template getter should return a string that can be converted to HTML.
+            // The template getter should return a string that can be converted to HTML or an HTMLElement
             // NOTE: The string must have 1 wrapping element. See in template.html
             return template
         }
@@ -206,7 +206,7 @@ The contents of ```style.scss``` can look something like this:
 
         export class ComponentHeader extends Component {
             get template () { 
-                // The template getter should return a string that can be converted to HTML.
+                // The template getter should return a string that can be converted to HTML or an HTMLElement
                 // NOTE: The string must have 1 wrapping element. See in template.html
                 return template
             }
@@ -363,8 +363,8 @@ The contents of ```style.scss``` can look something like this:
         .
         
         "scripts": {
-            "test": "modux dev",
-            "build": "modux prod",
+            "test": "modux start",
+            "build": "modux build",
         }
     }
  ```

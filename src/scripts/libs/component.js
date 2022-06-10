@@ -9,7 +9,7 @@ import { Router } from './router.js'
  */
 export class Component {
   /**
-   * The html string that becomes the view for this component
+   * The html string or HTMLElement that becomes the view for this component
    */
   get template () {
     return ''
@@ -20,6 +20,11 @@ export class Component {
    * @param {URL} url The current url
    */
   onStateChange ( url ) {}
+
+  /**
+   * The method gets called before the template is attached. This is useful for modifing the template before the MutationObserver starts tracking it or add dependencies for template elements
+   */
+  init () {}
 
   /**
    * The method gets called when the component gets created in the page. It is the main method of the class
@@ -70,7 +75,10 @@ export class Component {
      * @type {HTMLElement}
      * @public
      */
-    this.element = html( this.template )
+    this.element = ( typeof this.template === 'string' ) ? html( this.template ) : this.template
+
+    // Call the init method before the template is attached to the parent element
+    this.init()
 
     // Append element to the dom
     this.parent.appendChild( this.element )
