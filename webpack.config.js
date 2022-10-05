@@ -182,10 +182,13 @@ module.exports = () => {
         },
         {
           test: /\.(html)$/i,
-          loader: 'raw-loader'
+          loader: 'raw-loader',
+          options: {
+            esModule: false
+          }
         },
         {
-          test: /\.(jpe?g|png|gif|svg)$/i,
+          test: /\.(jpe?g|png|gif|svg|webp)$/i,
           use: [
             {
               loader: 'url-loader'
@@ -199,6 +202,7 @@ module.exports = () => {
                     [ 'gifsicle', { interlaced: true } ],
                     [ 'jpegtran', { progressive: true } ],
                     [ 'optipng', { optimizationLevel: 5 } ],
+                    [ 'webp', { lossless: true } ],
                     [
                       'svgo',
                       {
