@@ -39,7 +39,6 @@ class Loader {
   preloadImage ( id, url, image ) {
     let img = image || new Image()
     return new Promise( ( resolve, reject ) => {
-      img.crossOrigin = 'anonymous'
       img.onload = () => {
         this.__cache[ id ] = img
         resolve( this.__cache[ id ] )
@@ -61,7 +60,6 @@ class Loader {
   preloadAudio ( id, url, audio ) {
     let sound = audio || new Audio()
     return new Promise( ( resolve, reject ) => {
-      sound.crossOrigin = 'anonymous'
       sound.addEventListener( 'canplay', () => {
         this.__cache[ id ] = sound
         resolve( this.__cache[ id ] )
@@ -84,7 +82,6 @@ class Loader {
     let xhr = request || new XMLHttpRequest()
     return new Promise( ( resolve, reject ) => {
       xhr.open( 'GET', url )
-      xhr.withCredentials = true
       xhr.onload = () => {
         this.__cache[ id ] = xhr.responseText
         resolve( this.__cache[ id ] )
