@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">scripts/utils/loader.js | @crispcode/modux</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A framework used in front end application creation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@crispcode/modux"><meta property="twitter:description" content="A framework used in front end application creation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/CrispCode/modux.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#libs">libs</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/libs/component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/libs/module.js~Module.html">Module</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/libs/router.js~Router.html">Router</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils">utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/communication.js~Communication.html">Communication</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/cookie.js~Cookie.html">Cookie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/datetime.js~DateTime.html">DateTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/device.js~Device.html">Device</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/font.js~Font.html">Font</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/loader.js~Loader.html">Loader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/logger.js~Logger.html">Logger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/sounds.js~Sounds.html">Sounds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/url.js~Url.html">Url</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approx">approx</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-extend">extend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-html">html</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isObject">isObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loop">loop</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-radians">radians</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rnd">rnd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uid">uid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-loader">loader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-logger">logger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-scroll">scroll</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-sounds">sounds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://github.com/adobe-fonts/adobe-blank">Adobe Blank</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">scripts/utils/loader.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/* globals XMLHttpRequest, Image, Audio */
+
+&apos;use strict&apos;
+
+import { loop } from &apos;./loop.js&apos;
+import { isObject } from &apos;./isobject.js&apos;
+
+/**
+ * The Loader class is used to preload files
+ */
+class Loader {
+  /**
+   * Creates an instance of the Loader class
+   */
+  constructor () {
+    /**
+     * Contains a cache of files
+     * @type {Object}
+     * @private
+     */
+    this.__cache = {}
+  }
+
+  /**
+   * Create a new instance of the Loader
+   * @return {Loader} The new Loader instance
+   */
+  create () {
+    return new Loader()
+  }
+
+  /**
+   * Preload an image
+   * @param {String} id A unique identifier for this file
+   * @param {String} url The image url to load
+   * @param {Image} image The image oject used to load the asset. If null a new one will be created.
+   * @return {Promise} Returns a promise which is resolved upon loading
+   */
+  preloadImage ( id, url, image ) {
+    let img = image || new Image()
+    return new Promise( ( resolve, reject ) =&gt; {
+      img.onload = () =&gt; {
+        this.__cache[ id ] = img
+        resolve( this.__cache[ id ] )
+      }
+      img.onerror = ( err ) =&gt; {
+        reject( err )
+      }
+      img.src = url
+    } )
+  }
+
+  /**
+   * Preload an audio file
+   * @param {String} id A unique identifier for this file
+   * @param {String} url The audio url to load
+   * @param {Audio} audio The audio oject used to load the asset. If null a new one will be created.
+   * @return {Promise} Returns a promise which is resolved upon loading
+   */
+  preloadAudio ( id, url, audio ) {
+    let sound = audio || new Audio()
+    return new Promise( ( resolve, reject ) =&gt; {
+      sound.addEventListener( &apos;canplay&apos;, () =&gt; {
+        this.__cache[ id ] = sound
+        resolve( this.__cache[ id ] )
+      } )
+      sound.onerror = ( err ) =&gt; {
+        reject( err )
+      }
+      sound.src = url
+    } )
+  }
+
+  /**
+   * Preload a file using HTTPRequest
+   * @param {String} id A unique identifier for this file
+   * @param {String} url The file url to load
+   * @param {XMLHttpRequest} request The xhr oject used to load the asset. If null a new one will be created.
+   * @return {Promise} Returns a promise which is resolved upon loading
+   */
+  preloadFile ( id, url, request ) {
+    let xhr = request || new XMLHttpRequest()
+    return new Promise( ( resolve, reject ) =&gt; {
+      xhr.open( &apos;GET&apos;, url )
+      xhr.onload = () =&gt; {
+        this.__cache[ id ] = xhr.responseText
+        resolve( this.__cache[ id ] )
+      }
+      xhr.onerror = ( err ) =&gt; {
+        reject( err )
+      }
+      xhr.send()
+    } )
+  }
+
+  /**
+   * Load a list of files
+   * @param {Object} files Contains a list of files to load with the following structure: { &quot;file1&quot;: &quot;url1&quot;, &quot;file2&quot;: &quot;url2&quot; } or { &quot;file1&quot;: { type: &quot;image|audio|file&quot;, url: &quot;url1&quot;, obj: objectLoader|null } }
+   * @param {Function} progress A callback function with the parameters: &quot;err, id, data, loaded, total&quot;
+   * @return {Promise} Returns a promise which is resolved upon loading all files, doesn&apos;t matter if they failed or not
+   */
+  preload ( files, progress ) {
+    return new Promise( ( resolve ) =&gt; {
+      let total = Object.keys( files ).length
+      let loaded = 0
+      let index = 0
+
+      let process = ( err, id, data, loaded, total ) =&gt; {
+        if ( typeof progress === &apos;function&apos; ) {
+          progress( err, id, data, loaded, total )
+        }
+        index++
+        if ( total === index ) {
+          resolve( total - loaded )
+        }
+      }
+
+      if ( total === 0 ) {
+        resolve( 0 )
+      }
+
+      loop( files, ( file, id ) =&gt; {
+        let type = &apos;file&apos;
+        let obj = null
+        let url = file
+        if ( isObject( file ) ) {
+          type = file.type
+          url = file.url
+          obj = file.obj || null
+        }
+        let loader = this[ &apos;preload&apos; + type.charAt( 0 ).toUpperCase() + type.slice( 1 ).toLowerCase() ]
+        loader.call( this, id, url, obj )
+          .then( ( data ) =&gt; {
+            loaded++
+            process( null, id, data, loaded, total )
+          } )
+          .catch( ( err ) =&gt; {
+            process( err, id, null, loaded, total )
+          } )
+      } )
+    } )
+  }
+
+  /**
+   * Returns the cache containing the preloaded files
+   * @return {Object}
+   */
+  getCache () {
+    return this.__cache
+  }
+
+  /**
+   * Returns a load file by id
+   * @param {String} id
+   * @return {Object}
+   */
+  get ( id ) {
+    return this.__cache[ id ]
+  }
+}
+
+/**
+ * Returns a singleton of the Loader
+ */
+export let loader = new Loader()
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

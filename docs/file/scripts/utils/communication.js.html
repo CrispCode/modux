@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">scripts/utils/communication.js | @crispcode/modux</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A framework used in front end application creation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@crispcode/modux"><meta property="twitter:description" content="A framework used in front end application creation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/CrispCode/modux.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#libs">libs</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/libs/component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/libs/module.js~Module.html">Module</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/libs/router.js~Router.html">Router</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils">utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/communication.js~Communication.html">Communication</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/cookie.js~Cookie.html">Cookie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/datetime.js~DateTime.html">DateTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/device.js~Device.html">Device</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/font.js~Font.html">Font</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/loader.js~Loader.html">Loader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/logger.js~Logger.html">Logger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/sounds.js~Sounds.html">Sounds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/url.js~Url.html">Url</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approx">approx</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-extend">extend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-html">html</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isObject">isObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loop">loop</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-radians">radians</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rnd">rnd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uid">uid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-loader">loader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-logger">logger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-scroll">scroll</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-sounds">sounds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://github.com/adobe-fonts/adobe-blank">Adobe Blank</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">scripts/utils/communication.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/* globals XMLHttpRequest, FormData, document */
+
+import { extend } from &apos;./extend.js&apos;
+
+/**
+ * This class is responsible for server communication using http requests
+ */
+export class Communication {
+  /**
+   * Creates an instance of Communication
+   * @param {FormData} [form] An existing form that would be sent
+   */
+  constructor ( form ) {
+    /**
+     * The FormData to use when sending the request, see https://developer.mozilla.org/en-US/docs/Web/API/FormData
+     * @type {FormData}
+     * @private
+     */
+    this.__form = new FormData( form )
+    /**
+     * The XMLHttpRequest to use in the request
+     * @type {XMLHttpRequest}
+     * @private
+     */
+    this.__request = new XMLHttpRequest()
+    /**
+     * Contains all the headers for the request
+     * @type {Object}
+     * @private
+     */
+    this.__headers = {}
+  }
+
+  /**
+   * Returns the FormData object attached to the request. This makes it easier to control the fields.
+   * @return {FormData} FormData attached to the request
+   */
+  get form () {
+    return this.__form
+  }
+
+  /**
+   * Sets a header to the request
+   * @param {String} name Header name
+   * @param {String} value Header value
+   */
+  setHeader ( name, value ) {
+    this.__headers[ name ] = value
+  }
+
+  /**
+   * Gets a header by key
+   * @param {String} name Header name
+   * @return {String} Header value
+   */
+  getHeader ( name ) {
+    return this.__headers[ name ]
+  }
+
+  /**
+   * Delete a header by key
+   * @param {String} name Header name
+   */
+  deleteHeader ( name ) {
+    delete this.__headers[ name ]
+  }
+
+  /**
+   * Returns an object containing all the headers sets
+   * @return {Object} Object containing all the headers
+   */
+  getHeaders () {
+    return extend( {}, this.__headers )
+  }
+
+  /**
+   * Clears all the set headers
+   */
+  clearHeaders () {
+    this.__headers = {}
+  }
+
+  /**
+   * Sets a listener to track the progress of the request
+   * @param {Function} [progress=null] This function has two parameters, one parameter represents the progress value and the second is the event for onprogress
+   * @param {Function} end This function has three parameters, one parameter is the error and one which contains the responseText, and the third one will contain the entire event of onloadend
+   */
+  listener ( progress, end ) {
+    const self = this
+    this.__request.onloadend = function ( ev ) {
+      if ( self.__request.status === 200 ) {
+        end( null, ev.target.responseText, ev )
+      } else {
+        end( self.__request.status, ev.target.responseText, ev )
+      }
+    }
+    if ( progress ) {
+      this.__request.onprogress = function ( ev ) {
+        if ( ev.lengthComputable ) {
+          progress( ev.loaded / ev.total, ev )
+        } else {
+          progress( null, ev )
+        }
+      }
+    }
+  }
+
+  /**
+   * Parse a url to the correct format
+   * @param {String} url The url to request to
+   */
+  parseUrl ( url ) {
+    let div = document.createElement( &apos;div&apos; )
+    div.innerHTML = &apos;&lt;a&gt;&lt;/a&gt;&apos;
+    div.firstChild.href = url // Ensures that the href is properly escaped
+    return div.firstChild.href
+  }
+
+  /**
+   * Abort a request
+   */
+  cancel () {
+    this.__request.abort()
+  }
+
+  /**
+   * Initiate the request
+   * @param {String} url The url to request to
+   * @param {String} method Either POST or GET
+   */
+  send ( url, method ) {
+    url = this.parseUrl( url )
+    this.__request.open( method.toUpperCase(), url )
+    for ( let i = 0, k = Object.keys( this.__headers ), l = k.length; i &lt; l; i++ ) {
+      this.__request.setRequestHeader( k[ i ], this.__headers[ k[ i ] ] )
+    }
+    this.__request.send( this.__form )
+  }
+
+  /**
+   * Initiate a POST request
+   * @param {String} url The url to request to
+   */
+  post ( url ) {
+    this.send( url, &apos;POST&apos; )
+  }
+
+  /**
+   * Initiate a GET request
+   * @param {String} url The url to request to
+   */
+  get ( url ) {
+    this.send( url, &apos;GET&apos; )
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

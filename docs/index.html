@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="./">
+  <title data-ice="title">Manual | @crispcode/modux</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A framework used in front end application creation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@crispcode/modux"><meta property="twitter:description" content="A framework used in front end application creation"></head>
+<body class="layout-container manual-root manual-index" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/CrispCode/modux.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/getting-started.html"><a href="manual/getting-started.html" data-ice="link">Getting started</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#understanding-modux-architecture" data-ice="link">Understanding modux architecture</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/getting-started.html"><a href="manual/getting-started.html#what-is-a-component--" data-ice="link">What is a Component ?</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/getting-started.html"><a href="manual/getting-started.html#what-is-a-module--" data-ice="link">What is a Module ?</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/getting-started.html"><a href="manual/getting-started.html#what-is-a-pushstore--" data-ice="link">What is a PushStore ?</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#building-your-first-component" data-ice="link">Building your first component</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/getting-started.html"><a href="manual/getting-started.html#building-your-first-application" data-ice="link">Building your first application</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/basic-usage.html"><a href="manual/basic-usage.html" data-ice="link">Basic usage</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/basic-usage.html"><a href="manual/basic-usage.html#-components-layout-template-html" data-ice="link">/components/layout/template.html</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/basic-usage.html"><a href="manual/basic-usage.html#-components-layout-index-js" data-ice="link">/components/layout/index.js</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/basic-usage.html"><a href="manual/basic-usage.html#-app-js" data-ice="link">/app.js</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/basic-usage.html"><a href="manual/basic-usage.html#-app-html" data-ice="link">/app.html</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/basic-usage-router.html"><a href="manual/basic-usage-router.html" data-ice="link">Basic usage router</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/basic-usage-router.html"><a href="manual/basic-usage-router.html#-components-layout-template-html" data-ice="link">/components/layout/template.html</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/basic-usage-router.html"><a href="manual/basic-usage-router.html#-components-layout-index-js" data-ice="link">/components/layout/index.js</a></li>
+<li data-ice="manualNav" class="indent-h4" data-link="manual/basic-usage-router.html"><a href="manual/basic-usage-router.html#-app-js" data-ice="link">/app.js</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown">
+  <div class="manual-user-index" data-ice="manualUserIndex"><h1 id="modux">MODUX</h1><p>A framework used in front end application creation</p>
+<h2 id="installation">Installation</h2><pre><code class="lang-sh"><code class="source-code prettyprint">npm install @crispcode/modux --save-dev</code>
+</code></pre>
+<p>You can also create a basic project structure without the need to install modux, by using the npx command:</p>
+<pre><code class="lang-sh"><code class="source-code prettyprint">npx --package=@crispcode/modux -c &quot;modux boilerplate basic create&quot;</code>
+</code></pre>
+<h2 id="how-to-use">How to use</h2><p>Modux has the following commands available from the command line:
+Command|Description
+-|-
+<code>modux start</code> | Starts the local modux project in development mode
+<code>modux build</code> | Compiles the project for production. Output will be in the <code>build</code> directory
+<code>modux boilerplate</code> | Provides information on modux boilerplate. This is used to create project structures based on a template</p>
+<p>Add to your package.json scripts:</p>
+<pre><code><code class="source-code prettyprint">  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;modux start&quot;,
+    &quot;build&quot;: &quot;modux build&quot;
+  }</code>
+</code></pre><p>To run use: <code>npm start</code> or <code>npm run build</code></p>
+<h2 id="documentation--amp--testing">Documentation &amp; Testing</h2><p>Clone the modux repository to your machine and use the following commands:</p>
+<p>To generate a documentation use <code>npm run docs</code>
+If you want to check functionality you can use <code>npm run test</code> </p>
+<h2 id="getting-started">Getting started</h2><p>You can check the manual files for a quick introduction into modux. You can get started <a href="https://github.com/CrispCode/modux/blob/master/manual/getting-started.md">here</a>.</p>
+<h2 id="polyfill">Polyfill</h2><p>In order to support older versions of browsers, you can use <a href="https://polyfill.io/">polyfill.io</a></p>
+<h2 id="modux-classes">Modux classes</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th>Usage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Router</td>
+<td><code>import { Router } from &apos;@crispcode/modux&apos;</code></td>
+<td>A static class used to manipulate states and urls</td>
+</tr>
+<tr>
+<td style="text-align:center">Component</td>
+<td><code>import { Component } from &apos;@crispcode/modux&apos;</code></td>
+<td>The Component class. Components are the backbone of the application</td>
+</tr>
+<tr>
+<td style="text-align:center">Module</td>
+<td><code>import { Module } from &apos;@crispcode/modux&apos;</code></td>
+<td>The Module class. Modules are the main part of modux</td>
+</tr>
+</tbody>
+</table>
+<h2 id="utils-classes">Utils classes</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th>Usage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">approx</td>
+<td><code>import { approx } from &apos;@crispcode/modux&apos;</code></td>
+<td>Used to approximate a number to a certain number of decimals</td>
+</tr>
+<tr>
+<td style="text-align:center">Communication</td>
+<td><code>import { Communication } from &apos;@crispcode/modux&apos;</code></td>
+<td>The Communication class, used to handle http requests</td>
+</tr>
+<tr>
+<td style="text-align:center">Cookie</td>
+<td><code>import { Cookie } from &apos;@crispcode/modux&apos;</code></td>
+<td>A static class used to manipulate cookies</td>
+</tr>
+<tr>
+<td style="text-align:center">DateTime</td>
+<td><code>import { DateTime } from &apos;@crispcode/modux&apos;</code></td>
+<td>A Date class wrapper</td>
+</tr>
+<tr>
+<td style="text-align:center">Device</td>
+<td><code>import { Device } from &apos;@crispcode/modux&apos;</code></td>
+<td>A static class used to get device information</td>
+</tr>
+<tr>
+<td style="text-align:center">extend</td>
+<td><code>import { extend } from &apos;@crispcode/modux&apos;</code></td>
+<td>Extends an object with another object</td>
+</tr>
+<tr>
+<td style="text-align:center">font</td>
+<td><code>import { font } from &apos;@crispcode/modux&apos;</code></td>
+<td>A font loader</td>
+</tr>
+<tr>
+<td style="text-align:center">html</td>
+<td><code>import { html } from &apos;@crispcode/modux&apos;</code></td>
+<td>Convert string to html</td>
+</tr>
+<tr>
+<td style="text-align:center">isNumber</td>
+<td><code>import { isNumber } from &apos;@crispcode/modux&apos;</code></td>
+<td>Checks if the value is a number</td>
+</tr>
+<tr>
+<td style="text-align:center">isObject</td>
+<td><code>import { isObject } from &apos;@crispcode/modux&apos;</code></td>
+<td>Checks if the object is an Object</td>
+</tr>
+<tr>
+<td style="text-align:center">loader</td>
+<td><code>import { loader } from &apos;@crispcode/modux&apos;</code></td>
+<td>The Loader class is used to preload files</td>
+</tr>
+<tr>
+<td style="text-align:center">logger</td>
+<td><code>import { logger } from &apos;@crispcode/modux&apos;</code></td>
+<td>A class to mimic window.console</td>
+</tr>
+<tr>
+<td style="text-align:center">loop</td>
+<td><code>import { loop } from &apos;@crispcode/modux&apos;</code></td>
+<td>Loop through a collection Object or Array</td>
+</tr>
+<tr>
+<td style="text-align:center">radians</td>
+<td><code>import { radians } from &apos;@crispcode/modux&apos;</code></td>
+<td>Convert an angle from degrees to radians</td>
+</tr>
+<tr>
+<td style="text-align:center">rnd</td>
+<td><code>import { rnd } from &apos;@crispcode/modux&apos;</code></td>
+<td>Generate a random number between two values</td>
+</tr>
+<tr>
+<td style="text-align:center">scroll</td>
+<td><code>import { scroll } from &apos;@crispcode/modux&apos;</code></td>
+<td>A library used for scrolling window or an element</td>
+</tr>
+<tr>
+<td style="text-align:center">sounds</td>
+<td><code>import { sounds } from &apos;@crispcode/modux&apos;</code></td>
+<td>A class used to manipulate Sounds</td>
+</tr>
+<tr>
+<td style="text-align:center">uid</td>
+<td><code>import { uid } from &apos;@crispcode/modux&apos;</code></td>
+<td>Generates a random unique identifier</td>
+</tr>
+<tr>
+<td style="text-align:center">Url</td>
+<td><code>import { Url } from &apos;@crispcode/modux&apos;</code></td>
+<td>A class used to manipulate urls</td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration">Configuration</h2><p>  You can create a file called <code>modux.config.js</code> in the root of your folder, which needs to contain a function with one parameter and returns an object. The parameter of the function will be filled with the current webpack configuration. This gives the user a chance to modify the default webpack configuration based on their needs.</p>
+<h2 id="change-log">Change Log</h2><p>  We&apos;re using the GitHub <a href="https://github.com/CrispCode/modux/releases">releases</a> for changelog entries.</p>
+</div>
+
+  
+
+  <div class="manual-cards">
+    
+  <div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>Getting started</h1><h2>Understanding modux architecture</h2><pre><code><code class="source-code prettyprint">
+-- Module -------- [ PushStore ] ------------------
+|                   /         \                   |
+|                  /           \                  |
+|                 /             \                 |
+|   -------------------     -------------------   |
+|   |   Component 1   |     |   Component 2   |   |
+|   -------------------     -------------------   |
+---------------------------------------------------
+</code>
+</code></pre><h3>What is a Component ?</h3><ul>
+<li>Everything in the modux architecture revolves around components.</li>
+<li>A component is defined by extending the Component class.</li>
+<li>You can think of it as a controller for an html tag.</li>
+<li>The component is initialized as soon as the html tag for it is appended to the application.</li>
+</ul><h3>What is a Module ?</h3><ul>
+<li>A module is what brings all components together. When we say application, we generally refer to the module and its components. But in reality an application can be created from multiple modules.</li>
+<li>You can think of a module as a super component.</li>
+<li>Modules are bound to an existing view by the user.</li>
+<li><p>Once a module has been bound, any activity on its view&apos;s children will be monitored, and components will be created / modified / destroyed when changes occur in the DOM.</p>
+<h3 id="what-is-a-pushstore--">What is a PushStore ?</h3></li>
+<li>See <a href="https://www.npmjs.com/package/@crispcode/pushstore">@crispcode/pushstore</a></li>
+<li>We use the pushstore as a way of comunicating information between components.</li>
+<li>An instance of PushStore is created when the module is created, and it is then shared with all its defined components.</li>
+<li>It works in a similar way to events, but with the added bonus of not being dependent on the race between emitters and listeners.</li>
+<li>The PushStore instance is also used as a way of storing information for all components of a module.</li>
+<li>Any data stored by any component or the module itself can be accessed by any other component or the module itself.</li>
+</ul><h2>Building your first component</h2><p> Lets create a component called <code>header</code>. For this we will create a folder called <code>header</code> in our application folder, under the <code>components</code> folder. ( Note the folder structure of the application is not mandatory, we are just using this structure for visibility ). Here we will add 1 js file, 1 scss file and 1 html file.</p><pre><code><code class="source-code prettyprint">/application
+    /components
+        /header
+            index.js
+            style.scss
+            template.html</code>
+</code></pre><p> The contents of <code>index.js</code> will look something like this:</p><pre><code class="lang-js"><code class="source-code prettyprint">
+    import { Component } from &apos;@crispcode/modux&apos;
+
+    // We are loading the html file as string ( handled by the default webpack configuration of modux )
+    import template from &apos;./template.html&apos;
+
+     // We are loading the style sheet for this component ( handled by the default webpack configuration of modux )
+    import &apos;./style.scss&apos;
+
+    export class ComponentHeader extends Component {
+        get template () { 
+            // The template getter should return a string that can be converted to HTML or an HTMLElement
+            // NOTE: The string must have 1 wrapping element. See in template.html
+            return template
+        }
+
+        // The execute() method is the component constructor.
+        // This will be called when an instance of the ComponentHeader needs to be created.
+        execute () {
+
+            // this.element will always have the result of this.template converted to html, for easy access to the view
+            this.element.querySelector(&apos;h1&apos;).innerHTML = &apos;Hello World!&apos;
+        }
+
+    }
+</code>
+</code></pre><p> The contents of <code>template.html</code> can look something like this:</p><pre><code class="lang-html"><code class="source-code prettyprint">    &lt;!-- 
+        Remember that templates need to have a wrapping element.
+        In this case it&apos;s div[class=&quot;component-header&quot;] tag
+    --&gt;
+    &lt;div class=&quot;component-header&quot;&gt;
+        &lt;h1&gt; This text will be replaced when the component is created &lt;/h1&gt;
+        &lt;span&gt; This is some static html stuff that we don&apos;t really focus on right now.&lt;/span&gt;
+    &lt;/div&gt;</code>
+</code></pre><p>The contents of <code>style.scss</code> can look something like this:</p><pre><code class="lang-css"><code class="source-code prettyprint">    .component-header {
+        background-color: #000000;
+
+        h1 {
+            color: #ffffff;
+        }
+    }</code>
+</code></pre><p> That&apos;s it! You have now created your fist component.</p><h2>Building your first application</h2><p> Now that we know how to create a component, lets see how it will all come together in a simple application.</p><p> First, lets create our folder structure:</p><pre><code><code class="source-code prettyprint">/application
+    /public
+        - any file added here will be copied as is by webpack
+    /components
+        /header
+            index.js
+            style.scss
+            template.html
+        /footer
+            index.js
+            style.scss
+            template.html
+        /layout
+            index.js
+            template.html
+    app.js
+    app.scss
+    app.html</code>
+</code></pre><p> Once the folder structure is complete, lets install modux, by running this command in the folder root: <code>npm install @crispcode/modux --save-dev</code>.
+ Now that we have modux in our project, we can focus on creating the base html page. Which is defined in <code>app.html</code>. The entry files are all controlled by the default webpack configuration for modux, so we don&apos;t need to worry about that.</p><p> The contents of <code>app.html</code> can look something like this: </p><pre><code class="lang-html"><code class="source-code prettyprint">    &lt;html&gt;
+
+        &lt;head&gt;
+            &lt;title&gt; My application &lt;title&gt;
+
+            &lt;!-- We add this as recommended by modux to polyfill unsupported js functionality in certain browsers --&gt;
+            &lt;script crossorigin=&quot;anonymous&quot; src=&quot;https://polyfill.io/v3/polyfill.min.js?flags=gated&amp;features=default%2CMutationObserver%2CString.prototype.padStart%2Cconsole.info&quot;&gt;&lt;/script&gt;    
+
+            &lt;!-- This will be the file that webpack will output containing all our style sheets --&gt;
+            &lt;link rel=&quot;stylesheet&quot; href=&quot;app.min.css&quot; /&gt;
+
+        &lt;/head&gt;
+
+        &lt;body&gt;
+            &lt;!-- We will use this tag to create our application --&gt;
+            &lt;div class=&quot;content&quot;&gt;&lt;/div&gt;
+
+            &lt;!-- This will be the file that webpack will output containing all our code --&gt;
+            &lt;script src=&quot;app.min.js&quot;&gt;&lt;/script&gt;
+        &lt;/body&gt;
+
+    &lt;/html&gt;</code>
+</code></pre><p> Now that we have an html entry, lets create the 2 components:</p><ol>
+<li><p>First we create the header component, similar to how we did it above</p>
+<p>The contents of <code>/application/components/header/template.html</code></p>
+<pre><code class="lang-html"><code class="source-code prettyprint">    &lt;!-- 
+        Remember that templates need to have a wrapping element.
+        In this case it&apos;s div[class=&quot;component-header&quot;] tag
+    --&gt;
+    &lt;div class=&quot;component-header&quot;&gt;
+        &lt;h1&gt; This text will be replaced when the component is created &lt;/h1&gt;
+    &lt;/div&gt;</code>
+</code></pre>
+<p>The contents of <code>/application/components/header/index.css</code></p>
+<pre><code class="lang-css"><code class="source-code prettyprint">    .component-header {
+        background-color: #000000;
+
+        h1 {
+            color: #ffffff;
+        }
+    }</code>
+</code></pre>
+<p>The contents of <code>/application/components/header/index.js</code></p>
+<pre><code class="lang-js"><code class="source-code prettyprint">
+    import { Component } from &apos;@crispcode/modux&apos;
+
+    // We are loading the html file as string ( handled by the default webpack configuration of modux )
+    import template from &apos;./template.html&apos;
+
+    // We are loading the style sheet for this component ( handled by the default webpack configuration of modux )
+    import &apos;./style.scss&apos;
+
+    export class ComponentHeader extends Component {
+        get template () { 
+            // The template getter should return a string that can be converted to HTML or an HTMLElement
+            // NOTE: The string must have 1 wrapping element. See in template.html
+            return template
+        }
+
+        // The execute() method is the component constructor.
+        // This will be called when an instance of the ComponentHeader needs to be created.
+        execute () {
+
+            // this.element will always have the result of this.template converted to html, for easy access to the view
+            // We will update the message in H1 based on our configuration
+            this.element.querySelector(&apos;h1&apos;).innerHTML = this.store.get(&apos;message-header&apos;)
+        }
+
+    }
+</code>
+</code></pre>
+</li>
+<li><p>Then we create the footer component, similar to the header</p>
+<p>The contents of <code>/application/components/footer/template.html</code></p>
+<pre><code class="lang-html"><code class="source-code prettyprint">    &lt;!-- 
+        Remember that templates need to have a wrapping element.
+        In this case it&apos;s div[class=&quot;component-footer&quot;] tag
+    --&gt;
+    &lt;div class=&quot;component-footer&quot;&gt;
+        &lt;span class=&quot;copyright&quot;&gt; This text will be replaced when the component is created &lt;/span&gt;
+    &lt;/div&gt;</code>
+</code></pre>
+<p>The contents of <code>/application/components/footer/index.css</code></p>
+<pre><code class="lang-css"><code class="source-code prettyprint">    .component-footer {
+        background-color: #000000;
+
+        .copyright {
+            color: #ffffff;
+        }
+    }</code>
+</code></pre>
+<p>The contents of <code>/application/components/footer/index.js</code></p>
+<pre><code class="lang-js"><code class="source-code prettyprint">
+    import { Component } from &apos;@crispcode/modux&apos;
+
+    // We are loading the html file as string ( handled by the default webpack configuration of modux )
+    import template from &apos;./template.html&apos;
+
+    // We are loading the style sheet for this component ( handled by the default webpack configuration of modux )
+    import &apos;./style.scss&apos;
+
+    export class ComponentFooter extends Component {
+        get template () { 
+            return template
+        }
+
+        execute () {
+            this.element.querySelector(&apos;.copyright&apos;).innerHTML = this.store.get(&apos;copyright&apos;)
+        }
+
+    }
+</code>
+</code></pre>
+<p>We have now the two components, but let&apos;s group them under one parent component. This will be the layout component and we will skip the styles for it.</p>
+<p>The contents of <code>/application/components/layout/template.html</code></p>
+<pre><code class="lang-html"><code class="source-code prettyprint">&lt;div class=&quot;component-layout&quot;&gt;
+    &lt;!-- 
+        This is how we define the position of a component in a page.
+        As soon as an element with the attribute data-modux-component is found,
+        the application will create an instance of that component ( if defined in its dependency ),
+        and insert it&apos;s template as a child of that parent element.
+    --&gt;
+    &lt;section data-modux-component=&quot;header&quot;&gt;&lt;/section&gt;
+    &lt;section data-modux-component=&quot;footer&quot;&gt;&lt;/section&gt;
+&lt;/div&gt;</code>
+</code></pre>
+<p>The contents of <code>/application/components/layout/index.js</code>
+<code>`</code>js</p>
+<p>import { Component } from &apos;@crispcode/modux&apos;</p>
+<p>import template from &apos;./template.html&apos;</p>
+<p>// We don&apos;t really want this component to do anything aside from holding the other two components
+export class ComponentLayout extends Component {</p>
+<pre><code><code class="source-code prettyprint">get template () { 
+    return template
+}</code>
+</code></pre><p>}</p>
+</li>
+</ol><pre><code><code class="source-code prettyprint">
+ Now lets bind it all together in a module. Since ```app.js``` is the main entry point for wepback config, here is were we create our module.
+
+ The contents of ``` /application/app.js</code>
+</code></pre><pre><code class="lang-js"><code class="source-code prettyprint">
+    /* globals window, document */
+
+    &apos;use strict&apos;
+
+    import { Module, logger } from &apos;@crispcode/modux&apos;
+
+    import { ComponentLayout } from &apos;./components/layout&apos;
+
+    import { ComponentHeader } from &apos;./components/header&apos;
+    import { ComponentFooter } from &apos;./components/footer&apos;
+
+    let initialize = () =&gt; {
+        // This is information that will be used in the header and footer components
+        store.set( &apos;message-header&apos;, &apos;Hello World! I am data stored in the application config&apos; )
+        store.set( &apos;copyright&apos;, &apos;&amp;copy; CrispCode&apos; )
+
+        // Just so that we have some details about what is happening we are going to set logger to debug mode.
+        logger.enabled( true )
+
+        logger.info( &apos;Application start&apos; )
+
+        // Create application
+        let app = new Module( &apos;app&apos; )
+        app
+            .addDependency( &apos;layout&apos;, ComponentLayout )
+            .addDependency( &apos;header&apos;, ComponentHeader )
+            .addDependency( &apos;footer&apos;, ComponentFooter )
+
+        // Start application bound to the content element
+        app.bootstrap( document.body.querySelector( &apos;.content&apos; ), &apos;layout&apos; )
+    }
+
+    // We will start the application as soon as the page is loaded.
+    window.addEventListener( &apos;load&apos;, () =&gt; {
+        initialize()
+    } )
+</code>
+</code></pre><p> GREAT! We are almost finished. All we need now is to add a build script to package json. This is as easy as adding the following properties to <code>package.json</code></p><pre><code class="lang-json"><code class="source-code prettyprint">    {
+        &quot;name&quot;: &quot;myapp&quot;,
+        &quot;version&quot;: &quot;1.0.0&quot;,
+        &quot;devDependencies&quot;: {
+            ...
+        },
+
+        .
+        .
+        .
+
+        &quot;scripts&quot;: {
+            &quot;test&quot;: &quot;modux start&quot;,
+            &quot;build&quot;: &quot;modux build&quot;,
+        }
+    }</code>
+</code></pre><p> Let&apos;s see what we&apos;ve created. Run <code>npm test</code>.</p><p> There are a lot of features available in modux, such as a lot of utilities, as well as a router class for managing url changes. You can always clone the modux repository and run <code>npm run docs</code> to get the full documentation for it.</p><p> If you have any issues or questions please feel free to refer to the issues page in github. Bye!</p></div>
+        <a data-ice="link" href="manual/getting-started.html"></a>
+      </div>
+    </div>
+<div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>Basic usage</h1><h4>/components/layout/template.html</h4><pre><code class="lang-html"><code class="source-code prettyprint">&lt;section class=&quot;layout&quot;&gt;&lt;/section&gt;</code>
+</code></pre><h4>/components/layout/index.js</h4><pre><code class="lang-js"><code class="source-code prettyprint">
+&apos;use strict&apos;
+
+import { Component } from &apos;@crispcode/modux&apos;
+
+import template from &apos;./template.html&apos;
+import &apos;./index.scss&apos;
+
+export class Layout extends Component {
+  get template () {
+    return template
+  }
+
+  execute() {
+    this.element.innerHTML = &quot;Layout loaded&quot;
+  }
+}
+</code>
+</code></pre><h4>/app.js</h4><pre><code class="lang-js"><code class="source-code prettyprint">
+/* globals window, document */
+
+&apos;use strict&apos;
+
+import { Module, logger } from &apos;@crispcode/modux&apos;
+
+import { Layout } from &apos;./components/layout&apos;
+
+let initialize = () =&gt; {
+  // Configure logger
+  logger.enabled( true )
+
+  logger.info( &apos;Application start&apos; )
+
+  // Create application
+  let app = new Module( &apos;app&apos; )
+  app
+    .addDependency( &apos;layout&apos;, Layout )
+
+  // Start application
+  app.bootstrap( document.querySelector( &apos;body&apos; ), &apos;layout&apos; )
+}
+
+window.addEventListener( &apos;load&apos;, () =&gt; {
+  initialize()
+} )
+</code>
+</code></pre><h4>/app.html</h4><pre><code class="lang-html"><code class="source-code prettyprint">&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+    &lt;title&gt; App &lt;/title&gt;
+
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, height=device-height, initial-scale=1, user-scalable=no&quot;&gt;
+
+    &lt;script crossorigin=&quot;anonymous&quot; src=&quot;https://polyfill.io/v3/polyfill.min.js?flags=gated&amp;features=default%2CMutationObserver%2CString.prototype.padStart%2Cconsole.info&quot;&gt;&lt;/script&gt;    
+
+    &lt;base href=&quot;/&quot; /&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;app.min.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script src=&quot;app.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+</code></pre></div>
+        <a data-ice="link" href="manual/basic-usage.html"></a>
+      </div>
+    </div>
+<div class="manual-card-wrap" data-ice="cards">
+      <div class="manual-card">
+        <div data-ice="card"><h1>Basic usage router</h1><h4>/components/layout/template.html</h4><pre><code class="lang-html"><code class="source-code prettyprint">&lt;section class=&quot;layout&quot;&gt;
+  &lt;span class=&quot;url&quot;&gt;&lt;/span&gt;
+  &lt;a href=&quot;/link1&quot; data-modux-link=&quot;&quot;&gt;LINK 1&lt;/a&gt;
+  &lt;a href=&quot;/link2&quot; data-modux-link=&quot;&quot;&gt;LINK 2&lt;/a&gt;
+  &lt;a href=&quot;/link3&quot; data-modux-link=&quot;&quot;&gt;LINK 3&lt;/a&gt;
+&lt;/section&gt;</code>
+</code></pre><h4>/components/layout/index.js</h4><pre><code class="lang-js"><code class="source-code prettyprint">
+&apos;use strict&apos;
+
+import { Component } from &apos;@crispcode/modux&apos;
+
+import template from &apos;./template.html&apos;
+
+export class Layout extends Component {
+  get template () {
+    return template
+  }
+
+  onStateChange ( url ) {
+    this.element.querySelector(&apos;.url&apos;).innerHTML = url.toString()
+  }
+}
+</code>
+</code></pre><h4>/app.js</h4><pre><code class="lang-js"><code class="source-code prettyprint">
+/* globals window, document */
+
+&apos;use strict&apos;
+
+import { Module } from &apos;@crispcode/modux&apos;
+
+import { Layout } from &apos;./components/layout&apos;
+
+let initialize = () =&gt; {
+
+  // Create application
+  let app = new Module( &apos;app&apos; )
+  app
+    .addDependency( &apos;layout&apos;, Layout )
+
+  // Start application
+  app.bootstrap( document.querySelector( &apos;body&apos; ), &apos;layout&apos; )
+}
+
+window.addEventListener( &apos;load&apos;, () =&gt; {
+  initialize()
+} )
+</code>
+</code></pre></div>
+        <a data-ice="link" href="manual/basic-usage-router.html"></a>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">scripts/utils/sounds.js | @crispcode/modux</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A framework used in front end application creation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@crispcode/modux"><meta property="twitter:description" content="A framework used in front end application creation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/CrispCode/modux.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#libs">libs</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/libs/component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/libs/module.js~Module.html">Module</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/libs/router.js~Router.html">Router</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils">utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/communication.js~Communication.html">Communication</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/cookie.js~Cookie.html">Cookie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/datetime.js~DateTime.html">DateTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/device.js~Device.html">Device</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/font.js~Font.html">Font</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/loader.js~Loader.html">Loader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/logger.js~Logger.html">Logger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/sounds.js~Sounds.html">Sounds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/scripts/utils/url.js~Url.html">Url</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-approx">approx</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-extend">extend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-html">html</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isObject">isObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loop">loop</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-radians">radians</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rnd">rnd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uid">uid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-loader">loader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-logger">logger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-scroll">scroll</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-sounds">sounds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://github.com/adobe-fonts/adobe-blank">Adobe Blank</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">scripts/utils/sounds.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/* globals document, Audio */
+
+&apos;use strict&apos;
+
+import { loop } from &apos;./loop.js&apos;
+
+/**
+ * An audio wrapper
+ */
+class Sound {
+  /**
+   * Creates a Sound instance
+   * @param {Audio} audio The Audio element to wrap
+   */
+  constructor ( audio ) {
+    /**
+     * The Audio element
+     * @type {Audio}
+     * @private
+     */
+    this.__audio = audio
+    /**
+     * Determines if audio is enabled
+     * @type {Boolean=false}
+     * @private
+     */
+    this.__enabled = false
+    /**
+     * Determines if the audio should loop infinitly
+     * @type {Boolean=false}
+     * @private
+     */
+    this.__looped = false
+
+    audio.addEventListener( &apos;ended&apos;, () =&gt; {
+      audio.currentTime = 0
+      if ( this.__looped ) {
+        audio.play()
+      }
+    } )
+  }
+
+  /**
+   * Sets the Sound to enabled or disabled
+   * @param {Boolean} enabled If true the Sound class will be enabled
+   */
+  enabled ( enabled ) {
+    this.__enabled = enabled
+  }
+
+  /**
+   * Sets the volume of the Sound instance
+   * @param {Number} volume
+   */
+  volume ( volume ) {
+    this.__audio.volume = volume
+  }
+
+  /**
+   * Play the Sound instance
+   * @return {Promise} The promise is resolved once the Sound is played
+   */
+  play () {
+    if ( !this.__enabled ) {
+      return Promise.resolve()
+    }
+
+    let result = this.__audio.play()
+
+    // Old browsers don&apos;t return a promise for play(), so we create one
+    if ( !( result instanceof Promise ) ) {
+      return Promise.resolve()
+    }
+
+    return result
+  }
+
+  /**
+   * Pause the Sound instance
+   * @return {Promise} The promise is resolved once the Sound is paused
+   */
+  pause () {
+    if ( !this.__audio.paused ) {
+      this.__audio.pause()
+    }
+    return Promise.resolve()
+  }
+
+  /**
+   * Sets the Sound to muted or unmuted
+   * @param {Boolean} mute If true the Sound class will be muted
+   */
+  mute ( mute ) {
+    this.__audio.muted = mute
+  }
+
+  /**
+   * Sets the Sound to looped or single play
+   * @param {Boolean} looped If true the Sound class will be looped infinitely
+   */
+  loop ( looped ) {
+    this.__looped = looped
+  }
+}
+
+/**
+ * A class containing multiple Sound instances
+ */
+class Sounds {
+  /**
+   * Create an instance of Sounds
+   */
+  constructor () {
+    /**
+     * Holds the Sound instances
+     * @type {Object}
+     * @private
+     */
+    this.__collection = {}
+    /**
+     * Determines if the Sounds are enabled
+     * @type {Boolean=false}
+     * @private
+     */
+    this.__enabled = false
+  }
+
+  /**
+   * Returns a new instance of Sounds
+   * @return {Sounds} The newly created Sounds instance
+   */
+  create () {
+    return new Sounds()
+  }
+
+  /**
+   * Initializes the Sounds class. This is needed to enable Audio on some devices
+   * @return {Promise} The promise is resolved once audio is available
+   */
+  init () {
+    return new Promise( ( resolve, reject ) =&gt; {
+      let audio = new Audio( &apos;data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIADAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV6urq6urq6urq6urq6urq6urq6urq6urq6v////////////////////////////////8AAAAATGF2YzU2LjQxAAAAAAAAAAAAAAAAJAAAAAAAAAAAASDs90hvAAAAAAAAAAAAAAAAAAAA//MUZAAAAAGkAAAAAAAAA0gAAAAATEFN//MUZAMAAAGkAAAAAAAAA0gAAAAARTMu//MUZAYAAAGkAAAAAAAAA0gAAAAAOTku//MUZAkAAAGkAAAAAAAAA0gAAAAANVVV&apos; )
+
+      let result = audio.play()
+      if ( !( result instanceof Promise ) ) {
+        resolve( false )
+        return
+      }
+
+      let unlock = () =&gt; {
+        audio.play()
+          .then( () =&gt; {
+            document.body.removeEventListener( &apos;click&apos;, unlock )
+            // Enabled
+            this.enable( true )
+            resolve( this )
+          } )
+          .catch( ( reason ) =&gt; {
+            reject( reason )
+          } )
+      }
+
+      result
+        .then( () =&gt; {
+          // Enabled
+          this.enable( true )
+          resolve( this )
+        } )
+        .catch( () =&gt; {
+          document.body.addEventListener( &apos;click&apos;, unlock, false )
+          // Disabled
+          this.enable( false )
+        } )
+    } )
+  }
+
+  /**
+   * Sets the Sounds class to enabled or disabled
+   * @param {Boolean} enable If true the Sound instances will be enabled
+   */
+  enable ( enable ) {
+    this.__enabled = enable
+
+    loop( this.__collection, ( sound ) =&gt; {
+      sound.enabled( enable )
+    } )
+  }
+
+  /**
+   * Sets the Sounds class to muted or unmuted
+   * @param {Boolean} mute If true the Sound instances will be muted
+   */
+  mute ( mute ) {
+    loop( this.__collection, ( sound ) =&gt; {
+      sound.mute( mute )
+    } )
+  }
+
+  /**
+   * Adds a Sound instance to the Sounds
+   * @param {String} name An identifer to represent the Audio added
+   * @param {Audio|String} audio An Audio instance or an url to an audio file
+   * @return {Sound} Returns the Sound instance
+   */
+  add ( name, audio ) {
+    if ( typeof audio === &apos;string&apos; ) {
+      audio = new Audio( audio )
+    }
+    this.__collection[ name ] = new Sound( audio )
+    this.__collection[ name ].enabled( this.__enabled )
+    return this.__collection[ name ]
+  }
+
+  /**
+   * Remove a Sound instance from the Sounds
+   * @param {String} name An identifer to represent the Audio to be removed
+   */
+  remove ( name ) {
+    if ( this.__collection[name] ) {
+      this.__collection[ name ].enabled( false )
+      this.__collection[ name ].pause()
+        .then( () =&gt; {
+          delete this.__collection[ name ]
+        } )
+    }
+  }
+
+  /**
+   * Returns a specific Sound instance
+   * @param {String} name The Sound identifier
+   * @return {Sound} The Sound which is represented by the identifier
+   */
+  get ( name ) {
+    return this.__collection[ name ]
+  }
+}
+
+/**
+ * Returns a singleton of the Sounds
+ */
+export let sounds = new Sounds()
+
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
