@@ -41,7 +41,7 @@ If you want to check functionality you can use `npm run test`
 
 ## Getting started
 
-You can check the manual files for a quick introduction into modux. You can get started [here](https://github.com/CrispCode/modux/blob/master/manual/getting-started.md).
+You can should checkout the [Documentation](https://crispcode.github.io/modux/) before getting started with MODUX.
 
 ## Polyfill
 
