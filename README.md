@@ -1,6 +1,10 @@
 # MODUX
 A framework used in front end application creation
 
+## Getting started
+
+You can should checkout the [Documentation](https://crispcode.github.io/modux/) before getting started with MODUX.
+
 ## Installation
 
 ```sh
@@ -31,17 +35,6 @@ Add to your package.json scripts:
 ```
 
 To run use: `npm start` or `npm run build`
-
-## Documentation & Testing
-
-Clone the modux repository to your machine and use the following commands:
-
-To generate a documentation use `npm run docs`
-If you want to check functionality you can use `npm run test` 
-
-## Getting started
-
-You can should checkout the [Documentation](https://crispcode.github.io/modux/) before getting started with MODUX.
 
 ## Polyfill
 
