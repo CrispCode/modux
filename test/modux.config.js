@@ -2,7 +2,7 @@
 
 module.exports = ( config ) => {
   // Enable logging in webpack
-  config.stats = 'normal'
+  // config.stats = 'normal'
 
   config.devServer.setupMiddlewares = ( middlewares, server ) => {
     let app = server.app
